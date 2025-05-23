@@ -12,13 +12,14 @@ class Estudiante extends Model
     
     protected $fillable = [
         'cuenta_id',
-        'nombre',
-        'apellido',
-        'ci',
         'fecha_nacimiento',
         'curso',
         'colegio_id',
-        'tutor_id'
+        'celular',
+        'nombre_tutor',
+        'apellido_tutor',
+        'email_tutor',
+        'celular_tutor'
     ];
 
     /**
@@ -26,15 +27,7 @@ class Estudiante extends Model
      */
     public function cuenta(): BelongsTo
     {
-        return $this->belongsTo(Cuenta::class, 'cuenta_id');
-    }
-
-    /**
-     * Obtener el tutor asociado a este estudiante
-     */
-    public function tutor(): BelongsTo
-    {
-        return $this->belongsTo(Tutor::class, 'tutor_id');
+        return $this->belongsTo(User::class, 'cuenta_id');
     }
 
     /**

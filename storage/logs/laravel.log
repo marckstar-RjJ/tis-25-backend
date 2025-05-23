@@ -135,3 +135,684 @@
 [stacktrace]
 #0 {main}
 "} 
+[2025-05-23 04:00:25] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:03:05] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:04:15] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:06:47] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:09:01] local.ERROR: SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «cache»
+LINE 1: delete from "cache"
+                    ^ (Connection: pgsql, SQL: delete from "cache") {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42P01): SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «cache»
+LINE 1: delete from \"cache\"
+                    ^ (Connection: pgsql, SQL: delete from \"cache\") at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:822)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('delete from \"ca...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(581): Illuminate\\Database\\Connection->run('delete from \"ca...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): Illuminate\\Database\\Connection->affectingStatement('delete from \"ca...', Array)
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(4027): Illuminate\\Database\\Connection->delete('delete from \"ca...', Array)
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\DatabaseStore.php(421): Illuminate\\Database\\Query\\Builder->delete()
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Repository.php(803): Illuminate\\Cache\\DatabaseStore->flush()
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Console\\ClearCommand.php(68): Illuminate\\Cache\\Repository->__call('flush', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#13 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#21 {main}
+
+[previous exception] [object] (PDOException(code: 42P01): SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «cache»
+LINE 1: delete from \"cache\"
+                    ^ at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:593)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(593): PDOStatement->execute()
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(809): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('delete from \"ca...', Array)
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('delete from \"ca...', Array, Object(Closure))
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(581): Illuminate\\Database\\Connection->run('delete from \"ca...', Array, Object(Closure))
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): Illuminate\\Database\\Connection->affectingStatement('delete from \"ca...', Array)
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(4027): Illuminate\\Database\\Connection->delete('delete from \"ca...', Array)
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\DatabaseStore.php(421): Illuminate\\Database\\Query\\Builder->delete()
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Repository.php(803): Illuminate\\Cache\\DatabaseStore->flush()
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Console\\ClearCommand.php(68): Illuminate\\Cache\\Repository->__call('flush', Array)
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#15 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#17 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#23 {main}
+"} 
+[2025-05-23 04:09:20] local.ERROR: SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «cache»
+LINE 1: delete from "cache"
+                    ^ (Connection: pgsql, SQL: delete from "cache") {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42P01): SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «cache»
+LINE 1: delete from \"cache\"
+                    ^ (Connection: pgsql, SQL: delete from \"cache\") at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:822)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('delete from \"ca...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(581): Illuminate\\Database\\Connection->run('delete from \"ca...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): Illuminate\\Database\\Connection->affectingStatement('delete from \"ca...', Array)
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(4027): Illuminate\\Database\\Connection->delete('delete from \"ca...', Array)
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\DatabaseStore.php(421): Illuminate\\Database\\Query\\Builder->delete()
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Repository.php(803): Illuminate\\Cache\\DatabaseStore->flush()
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Console\\ClearCommand.php(68): Illuminate\\Cache\\Repository->__call('flush', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#13 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#21 {main}
+
+[previous exception] [object] (PDOException(code: 42P01): SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «cache»
+LINE 1: delete from \"cache\"
+                    ^ at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:593)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(593): PDOStatement->execute()
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(809): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('delete from \"ca...', Array)
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('delete from \"ca...', Array, Object(Closure))
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(581): Illuminate\\Database\\Connection->run('delete from \"ca...', Array, Object(Closure))
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(545): Illuminate\\Database\\Connection->affectingStatement('delete from \"ca...', Array)
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(4027): Illuminate\\Database\\Connection->delete('delete from \"ca...', Array)
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\DatabaseStore.php(421): Illuminate\\Database\\Query\\Builder->delete()
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Repository.php(803): Illuminate\\Cache\\DatabaseStore->flush()
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Cache\\Console\\ClearCommand.php(68): Illuminate\\Cache\\Repository->__call('flush', Array)
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#15 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#17 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#23 {main}
+"} 
+[2025-05-23 04:11:43] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:14:03] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-02-12","curso":3,"colegio":"11","emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:14:03] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:14:27] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-02-12","curso":3,"colegio":"11","emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:14:27] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:15:11] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-02-12","curso":3,"colegio":"11","emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:15:11] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:16:00] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-02-12","curso":3,"colegio":"11","emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:16:00] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC"} 
+[2025-05-23 04:16:00] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:17:09] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-02-12","curso":4,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:17:09] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP"} 
+[2025-05-23 04:17:09] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:17:26] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-02-12","curso":4,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:17:26] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP"} 
+[2025-05-23 04:17:26] local.ERROR: Trait "Laravel\Sanctum\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Sanctum\\HasApiTokens\" not found at C:\\tis-25\\backend\\app\\Models\\User.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-05-23 04:23:09] local.ERROR: SQLSTATE[42P07]: Duplicate table: 7 ERROR:  la relación «cuentas» ya existe (Connection: pgsql, SQL: create table "cuentas" ("id" bigserial not null primary key, "email" varchar(255) not null, "password" varchar(255) not null, "tipo_usuario" varchar(255) check ("tipo_usuario" in ('estudiante', 'tutor', 'administrador')) not null, "created_at" timestamp(0) without time zone null, "updated_at" timestamp(0) without time zone null)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42P07): SQLSTATE[42P07]: Duplicate table: 7 ERROR:  la relación «cuentas» ya existe (Connection: pgsql, SQL: create table \"cuentas\" (\"id\" bigserial not null primary key, \"email\" varchar(255) not null, \"password\" varchar(255) not null, \"tipo_usuario\" varchar(255) check (\"tipo_usuario\" in ('estudiante', 'tutor', 'administrador')) not null, \"created_at\" timestamp(0) without time zone null, \"updated_at\" timestamp(0) without time zone null)) at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:822)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('create table \"c...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(557): Illuminate\\Database\\Connection->run('create table \"c...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(119): Illuminate\\Database\\Connection->statement('create table \"c...')
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(618): Illuminate\\Database\\Schema\\Blueprint->build()
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(472): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create('cuentas', Object(Closure))
+#6 C:\\tis-25\\backend\\database\\migrations\\2025_04_20_163813_create_cuentas_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(514): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(439): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\PostgresConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(32): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Illuminate\\Database\\PostgresConnection))
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(447): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(41): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(805): Illuminate\\Console\\View\\Components\\Task->render('2025_04_20_1638...', Object(Closure))
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_04_20_1638...', Object(Closure))
+#15 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\tis-25\\\\backe...', 1, false)
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(137): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(116): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(665): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#27 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#35 {main}
+
+[previous exception] [object] (PDOException(code: 42P07): SQLSTATE[42P07]: Duplicate table: 7 ERROR:  la relación «cuentas» ya existe at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:568)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(568): PDOStatement->execute()
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(809): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table \"c...', Array)
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('create table \"c...', Array, Object(Closure))
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(557): Illuminate\\Database\\Connection->run('create table \"c...', Array, Object(Closure))
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(119): Illuminate\\Database\\Connection->statement('create table \"c...')
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(618): Illuminate\\Database\\Schema\\Blueprint->build()
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(472): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->create('cuentas', Object(Closure))
+#8 C:\\tis-25\\backend\\database\\migrations\\2025_04_20_163813_create_cuentas_table.php(14): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(514): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(439): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\PostgresConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(32): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Illuminate\\Database\\PostgresConnection))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(447): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(41): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#15 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(805): Illuminate\\Console\\View\\Components\\Task->render('2025_04_20_1638...', Object(Closure))
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_04_20_1638...', Object(Closure))
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\tis-25\\\\backe...', 1, false)
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(137): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(116): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(665): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#29 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#31 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#37 {main}
+"} 
+[2025-05-23 04:24:17] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-12-12","curso":3,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:24:17] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP"} 
+[2025-05-23 04:24:17] local.ERROR: Error al registrar usuario {"error":"SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «nombre» en la relación «cuentas»
+LINE 1: ...o \"cuentas\" (\"email\", \"password\", \"tipo_usuario\", \"nombre\", ...
+                                                             ^ (Connection: pgsql, SQL: insert into \"cuentas\" (\"email\", \"password\", \"tipo_usuario\", \"nombre\", \"apellidos\", \"ci\", \"updated_at\", \"created_at\") values (marckstar1@gmail.com, $2y$12$iwcuK08POhAgaU5CzcJmyOuFoOdH45.YPPIeYYqnz4rdXWePpeKbS, estudiante, Rodrigo, Huanca, 13257141-LP, 2025-05-23 04:24:17, 2025-05-23 04:24:17) returning \"id\")","trace":"#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('insert into \"cu...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(395): Illuminate\\Database\\Connection->run('insert into \"cu...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(382): Illuminate\\Database\\Connection->select('insert into \"cu...', Array, false)
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\PostgresProcessor.php(24): Illuminate\\Database\\Connection->selectFromWriteConnection('insert into \"cu...', Array)
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3769): Illuminate\\Database\\Query\\Processors\\PostgresProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into \"cu...', Array, 'id')
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2208): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1408): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1373): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1212): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1192): Illuminate\\Database\\Eloquent\\Model->save()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\User))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1191): tap(Object(App\\Models\\User), Object(Closure))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2449): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2465): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#15 C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php(45): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(46): App\\Http\\Controllers\\UserController->store(Object(Illuminate\\Http\\Request))
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(265): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\UserController), 'store')
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(211): Illuminate\\Routing\\Route->runController()
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(61): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePathEncoding.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePathEncoding->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#50 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#51 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1219): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#52 C:\\tis-25\\backend\\public\\index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#53 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\tis-25\\\\backe...')
+#54 {main}","line":822,"file":"C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php"} 
+[2025-05-23 04:24:57] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-12-12","curso":3,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:24:57] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP"} 
+[2025-05-23 04:24:58] local.ERROR: Error al registrar usuario {"error":"SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «nombre» en la relación «cuentas»
+LINE 1: ...o \"cuentas\" (\"email\", \"password\", \"tipo_usuario\", \"nombre\", ...
+                                                             ^ (Connection: pgsql, SQL: insert into \"cuentas\" (\"email\", \"password\", \"tipo_usuario\", \"nombre\", \"apellidos\", \"ci\", \"updated_at\", \"created_at\") values (marckstar1@gmail.com, $2y$12$XOcEcFXqWr6LPORbjPXaQeQy.FFvlFJ36b3s7Lox7vwuAQrHIkpfq, estudiante, Rodrigo, Huanca, 13257141-LP, 2025-05-23 04:24:58, 2025-05-23 04:24:58) returning \"id\")","trace":"#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('insert into \"cu...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(395): Illuminate\\Database\\Connection->run('insert into \"cu...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(382): Illuminate\\Database\\Connection->select('insert into \"cu...', Array, false)
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\PostgresProcessor.php(24): Illuminate\\Database\\Connection->selectFromWriteConnection('insert into \"cu...', Array)
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3769): Illuminate\\Database\\Query\\Processors\\PostgresProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into \"cu...', Array, 'id')
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2208): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1408): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1373): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1212): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1192): Illuminate\\Database\\Eloquent\\Model->save()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\User))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1191): tap(Object(App\\Models\\User), Object(Closure))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2449): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2465): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#15 C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php(45): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(46): App\\Http\\Controllers\\UserController->store(Object(Illuminate\\Http\\Request))
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(265): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\UserController), 'store')
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(211): Illuminate\\Routing\\Route->runController()
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(61): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePathEncoding.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePathEncoding->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#50 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#51 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1219): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#52 C:\\tis-25\\backend\\public\\index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#53 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\tis-25\\\\backe...')
+#54 {main}","line":822,"file":"C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php"} 
+[2025-05-23 04:29:27] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-12-12","curso":12,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:29:27] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP"} 
+[2025-05-23 04:29:28] local.ERROR: Error al registrar usuario {"error":"SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «nombre» en la relación «cuentas»
+LINE 1: ...o \"cuentas\" (\"email\", \"password\", \"tipo_usuario\", \"nombre\", ...
+                                                             ^ (Connection: pgsql, SQL: insert into \"cuentas\" (\"email\", \"password\", \"tipo_usuario\", \"nombre\", \"apellidos\", \"ci\", \"updated_at\", \"created_at\") values (marckstar1@gmail.com, $2y$12$YYPjm2nHGJ4FVziqscxuMec6v4LcLo5bZWSLMwIQGvdnXRLtWh9pq, estudiante, Rodrigo, Huanca, 13257141-LP, 2025-05-23 04:29:28, 2025-05-23 04:29:28) returning \"id\")","trace":"#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('insert into \"cu...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(395): Illuminate\\Database\\Connection->run('insert into \"cu...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(382): Illuminate\\Database\\Connection->select('insert into \"cu...', Array, false)
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\PostgresProcessor.php(24): Illuminate\\Database\\Connection->selectFromWriteConnection('insert into \"cu...', Array)
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3769): Illuminate\\Database\\Query\\Processors\\PostgresProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into \"cu...', Array, 'id')
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2208): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1408): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1373): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1212): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1192): Illuminate\\Database\\Eloquent\\Model->save()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(399): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\User))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1191): tap(Object(App\\Models\\User), Object(Closure))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2449): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(2465): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#15 C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php(45): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(46): App\\Http\\Controllers\\UserController->store(Object(Illuminate\\Http\\Request))
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(265): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\UserController), 'store')
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(211): Illuminate\\Routing\\Route->runController()
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(61): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePathEncoding.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePathEncoding->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#50 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#51 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1219): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#52 C:\\tis-25\\backend\\public\\index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#53 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\tis-25\\\\backe...')
+#54 {main}","line":822,"file":"C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php"} 
+[2025-05-23 04:39:02] local.ERROR: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «name» en la relación «cuentas»
+LINE 1: insert into "cuentas" ("name", "email", "email_verified_at",...
+                               ^ (Connection: pgsql, SQL: insert into "cuentas" ("name", "email", "email_verified_at", "password", "remember_token", "updated_at", "created_at") values (Test User, test@example.com, 2025-05-23 04:39:01, $2y$12$VhJpM7keqSNc44DBRyTcheBFHvK5tLV9o.YONYHDFY8PIg6n7oQBW, yIDEewlrLr, 2025-05-23 04:39:02, 2025-05-23 04:39:02) returning "id") {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42703): SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «name» en la relación «cuentas»
+LINE 1: insert into \"cuentas\" (\"name\", \"email\", \"email_verified_at\",...
+                               ^ (Connection: pgsql, SQL: insert into \"cuentas\" (\"name\", \"email\", \"email_verified_at\", \"password\", \"remember_token\", \"updated_at\", \"created_at\") values (Test User, test@example.com, 2025-05-23 04:39:01, $2y$12$VhJpM7keqSNc44DBRyTcheBFHvK5tLV9o.YONYHDFY8PIg6n7oQBW, yIDEewlrLr, 2025-05-23 04:39:02, 2025-05-23 04:39:02) returning \"id\") at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:822)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('insert into \"cu...', Array, Object(Closure))
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(395): Illuminate\\Database\\Connection->run('insert into \"cu...', Array, Object(Closure))
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(382): Illuminate\\Database\\Connection->select('insert into \"cu...', Array, false)
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\PostgresProcessor.php(24): Illuminate\\Database\\Connection->selectFromWriteConnection('insert into \"cu...', Array)
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3769): Illuminate\\Database\\Query\\Processors\\PostgresProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into \"cu...', Array, 'id')
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2208): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1408): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1373): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1212): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(351): Illuminate\\Database\\Eloquent\\Model->save()
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php(274): Illuminate\\Database\\Eloquent\\Factories\\Factory->Illuminate\\Database\\Eloquent\\Factories\\{closure}(Object(App\\Models\\User), 0)
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(346): Illuminate\\Support\\Collection->each(Object(Closure))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(302): Illuminate\\Database\\Eloquent\\Factories\\Factory->store(Object(Illuminate\\Support\\Collection))
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(296): Illuminate\\Database\\Eloquent\\Factories\\Factory->create(Array, NULL)
+#14 C:\\tis-25\\backend\\database\\seeders\\DatabaseSeeder.php(25): Illuminate\\Database\\Eloquent\\Factories\\Factory->create(Array)
+#15 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call(Array, Array)
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(71): Illuminate\\Database\\Seeder->__invoke()
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#31 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#33 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#39 {main}
+
+[previous exception] [object] (PDOException(code: 42703): SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «name» en la relación «cuentas»
+LINE 1: insert into \"cuentas\" (\"name\", \"email\", \"email_verified_at\",...
+                               ^ at C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:409)
+[stacktrace]
+#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(409): PDOStatement->execute()
+#1 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(809): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('insert into \"cu...', Array)
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(776): Illuminate\\Database\\Connection->runQueryCallback('insert into \"cu...', Array, Object(Closure))
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(395): Illuminate\\Database\\Connection->run('insert into \"cu...', Array, Object(Closure))
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(382): Illuminate\\Database\\Connection->select('insert into \"cu...', Array, false)
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\PostgresProcessor.php(24): Illuminate\\Database\\Connection->selectFromWriteConnection('insert into \"cu...', Array)
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3769): Illuminate\\Database\\Query\\Processors\\PostgresProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into \"cu...', Array, 'id')
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(2208): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1408): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1373): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1212): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(351): Illuminate\\Database\\Eloquent\\Model->save()
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Collections\\Traits\\EnumeratesValues.php(274): Illuminate\\Database\\Eloquent\\Factories\\Factory->Illuminate\\Database\\Eloquent\\Factories\\{closure}(Object(App\\Models\\User), 0)
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(346): Illuminate\\Support\\Collection->each(Object(Closure))
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(302): Illuminate\\Database\\Eloquent\\Factories\\Factory->store(Object(Illuminate\\Support\\Collection))
+#15 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Factories\\Factory.php(296): Illuminate\\Database\\Eloquent\\Factories\\Factory->create(Array, NULL)
+#16 C:\\tis-25\\backend\\database\\seeders\\DatabaseSeeder.php(25): Illuminate\\Database\\Eloquent\\Factories\\Factory->create(Array)
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call(Array, Array)
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(71): Illuminate\\Database\\Seeder->__invoke()
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#31 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#33 C:\\tis-25\\backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#35 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\tis-25\\backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#39 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 C:\\tis-25\\backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#41 {main}
+"} 
+[2025-05-23 04:41:11] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri123","fechaNacimiento":"2000-12-12","curso":3,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 04:41:11] local.INFO: Datos validados: {"email":"marckstar1@gmail.com","password":"rodri123","tipoUsuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-CB"} 
+[2025-05-23 04:41:12] local.INFO: Usuario creado: {"user":{"email":"marckstar1@gmail.com","tipo_usuario":"estudiante","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-CB","updated_at":"2025-05-23T04:41:12.000000Z","created_at":"2025-05-23T04:41:12.000000Z","id":1}} 
+[2025-05-23 04:41:12] local.INFO: Datos de estudiante validados: {"fechaNacimiento":"2000-12-12","curso":3,"colegio":1,"celular":"70740632","nombreTutor":"Rolando","apellidosTutor":"Quispe","emailTutor":"rolando@gmail.com","celularTutor":"72211589"} 
+[2025-05-23 04:41:12] local.INFO: Estudiante creado: {"estudiante":{"cuenta_id":1,"fecha_nacimiento":"2000-12-12","curso":3,"colegio_id":1,"celular":"70740632","nombre_tutor":"Rolando","apellido_tutor":"Quispe","email_tutor":"rolando@gmail.com","celular_tutor":"72211589","updated_at":"2025-05-23T04:41:12.000000Z","created_at":"2025-05-23T04:41:12.000000Z","id":1}} 
+[2025-05-23 04:58:04] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri321","celular":"70740632","colegio":1}} 
+[2025-05-23 04:58:04] local.INFO: Datos validados: {"email":"202001810@est.umss.edu","password":"rodri321","tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-CB"} 
+[2025-05-23 04:58:04] local.INFO: Usuario creado: {"user":{"email":"202001810@est.umss.edu","tipo_usuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-CB","updated_at":"2025-05-23T04:58:04.000000Z","created_at":"2025-05-23T04:58:04.000000Z","id":2}} 
+[2025-05-23 04:58:04] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]}} 
+[2025-05-23 05:00:19] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri123","celular":"70740632","colegio":1}} 
+[2025-05-23 05:00:19] local.INFO: Datos validados: {"email":"202001810@est.umss.edu","password":"rodri123","tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP"} 
+[2025-05-23 05:00:19] local.INFO: Usuario creado: {"user":{"email":"202001810@est.umss.edu","tipo_usuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","updated_at":"2025-05-23T05:00:19.000000Z","created_at":"2025-05-23T05:00:19.000000Z","id":3}} 
+[2025-05-23 05:00:19] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]}} 
+[2025-05-23 05:02:16] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:02:16] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:04:03] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:04:03] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:06:10] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:06:10] local.ERROR: Error de validación en registro {"errors":{"email":["The email has already been taken."],"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:06:20] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:06:20] local.ERROR: Error de validación en registro {"errors":{"email":["The email has already been taken."],"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-LP","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:10:05] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:10:05] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:10:05] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:13:39] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:13:39] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:13:39] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:14:49] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"ronaldo","apellidos":"Perez","ci":"13257141-CH","email":"booleanssolutions@gmail.com","password":"rolando123","fechaNacimiento":"2001-12-12","curso":6,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 05:14:50] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"estudiante","nombre":"ronaldo","apellidos":"Perez","ci":"13257141-CH","email":"booleanssolutions@gmail.com","password":"rolando123","fechaNacimiento":"2001-12-12","curso":6,"colegio":1,"emailTutor":"rolando@gmail.com","celular":"70740632","celularTutor":"72211589","nombreTutor":"Rolando","apellidosTutor":"Quispe"}} 
+[2025-05-23 05:14:50] local.INFO: Datos validados: {"email":"booleanssolutions@gmail.com","password":"rolando123","tipoUsuario":"estudiante","nombre":"ronaldo","apellidos":"Perez","ci":"13257141-CH","fechaNacimiento":"2001-12-12","curso":6,"colegio":1,"celular":"70740632","nombreTutor":"Rolando","apellidosTutor":"Quispe","emailTutor":"rolando@gmail.com","celularTutor":"72211589"} 
+[2025-05-23 05:14:50] local.INFO: Usuario creado: {"user":{"email":"booleanssolutions@gmail.com","tipo_usuario":"estudiante","nombre":"ronaldo","apellidos":"Perez","ci":"13257141-CH","updated_at":"2025-05-23T05:14:50.000000Z","created_at":"2025-05-23T05:14:50.000000Z","id":4}} 
+[2025-05-23 05:14:50] local.INFO: Estudiante creado.  
+[2025-05-23 05:15:22] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-PT","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:15:22] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-PT","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:15:22] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-PT","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:18:00] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-PT","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:18:00] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-PT","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:18:00] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-PT","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:19:10] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:19:10] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:19:10] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:22:08] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:22:08] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:22:08] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"ronaldo","apellidos":"Huanca","ci":"13257141-LP","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:22:59] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CH","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:22:59] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CH","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:22:59] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CH","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:26:51] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:26:51] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:26:51] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:28:35] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:28:36] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:28:36] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:28:43] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:28:43] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:28:43] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:30:17] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:30:17] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:30:17] local.ERROR: Error de validación en registro {"errors":{"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Huanca","ci":"13257141-SC","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:31:42] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:31:42] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:31:43] local.ERROR: Error de validación en registro {"errors":{"email":["The email has already been taken."],"departamento":["The departamento field is required."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:39:04] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:39:04] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:39:04] local.ERROR: Error de validación en registro {"errors":{"email":["The email has already been taken."]},"request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"marckstar1@gmail.com","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:39:51] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:39:51] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:39:51] local.INFO: Datos validados: {"email":"202001810@est.umss.edu","password":"rodri456","tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","celular":"70740632","colegio":1} 
+[2025-05-23 05:39:51] local.INFO: Usuario creado: {"user":{"email":"202001810@est.umss.edu","tipo_usuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","updated_at":"2025-05-23T05:39:51.000000Z","created_at":"2025-05-23T05:39:51.000000Z","id":5}} 
+[2025-05-23 05:39:51] local.ERROR: Error al registrar usuario {"error":"Undefined array key \"departamento\"","trace":"#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined array...', 'C:\\\\tis-25\\\\backe...', 106)
+#1 C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php(106): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined array...', 'C:\\\\tis-25\\\\backe...', 106)
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(46): App\\Http\\Controllers\\UserController->store(Object(Illuminate\\Http\\Request))
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(265): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\UserController), 'store')
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(211): Illuminate\\Routing\\Route->runController()
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#15 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(61): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePathEncoding.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePathEncoding->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#36 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#37 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1219): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#38 C:\\tis-25\\backend\\public\\index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#39 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\tis-25\\\\backe...')
+#40 {main}","line":106,"file":"C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php","request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:40:18] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:40:18] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:40:18] local.INFO: Datos validados: {"email":"202001810@est.umss.edu","password":"rodri456","tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","celular":"70740632","colegio":1} 
+[2025-05-23 05:40:19] local.INFO: Usuario creado: {"user":{"email":"202001810@est.umss.edu","tipo_usuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","updated_at":"2025-05-23T05:40:19.000000Z","created_at":"2025-05-23T05:40:19.000000Z","id":6}} 
+[2025-05-23 05:40:19] local.ERROR: Error al registrar usuario {"error":"Undefined array key \"departamento\"","trace":"#0 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined array...', 'C:\\\\tis-25\\\\backe...', 106)
+#1 C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php(106): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined array...', 'C:\\\\tis-25\\\\backe...', 106)
+#2 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(46): App\\Http\\Controllers\\UserController->store(Object(Illuminate\\Http\\Request))
+#3 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(265): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\UserController), 'store')
+#4 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(211): Illuminate\\Routing\\Route->runController()
+#5 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(808): Illuminate\\Routing\\Route->run()
+#6 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#7 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#8 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#9 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#11 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#12 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#13 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#14 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#15 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(169): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(109): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(61): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePathEncoding.php(26): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(208): Illuminate\\Http\\Middleware\\ValidatePathEncoding->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(126): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#36 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#37 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1219): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#38 C:\\tis-25\\backend\\public\\index.php(20): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#39 C:\\tis-25\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\tis-25\\\\backe...')
+#40 {main}","line":106,"file":"C:\\tis-25\\backend\\app\\Http\\Controllers\\UserController.php","request":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:40:59] local.INFO: [DEBUG_REGISTRO] Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:40:59] local.INFO: Solicitud de registro recibida {"data":{"tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","email":"202001810@est.umss.edu","password":"rodri456","celular":"70740632","colegio":1}} 
+[2025-05-23 05:40:59] local.INFO: Datos validados: {"email":"202001810@est.umss.edu","password":"rodri456","tipoUsuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","celular":"70740632","colegio":1} 
+[2025-05-23 05:40:59] local.INFO: Usuario creado: {"user":{"email":"202001810@est.umss.edu","tipo_usuario":"tutor","nombre":"Rodrigo","apellidos":"Perez","ci":"13257141-CB","updated_at":"2025-05-23T05:40:59.000000Z","created_at":"2025-05-23T05:40:59.000000Z","id":7}} 
+[2025-05-23 05:40:59] local.INFO: Creando tutor con datos: {"cuenta_id":7,"nombre":"Rodrigo","apellido":"Perez","ci":"13257141-CB","telefono":"70740632","colegio_id":1,"departamento":null} 
+[2025-05-23 05:40:59] local.INFO: Tutor creado exitosamente.  

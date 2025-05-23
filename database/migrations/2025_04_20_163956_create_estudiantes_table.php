@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cuenta_id')->constrained('cuentas')->onDelete('cascade');
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('ci');
             $table->date('fecha_nacimiento');
             $table->integer('curso');
             $table->unsignedBigInteger('colegio_id')->nullable();
-            $table->unsignedBigInteger('tutor_id')->nullable();
+            $table->string('celular');
+            $table->string('nombre_tutor');
+            $table->string('apellido_tutor');
+            $table->string('email_tutor');
+            $table->string('celular_tutor');
             $table->timestamps();
         });
     }
