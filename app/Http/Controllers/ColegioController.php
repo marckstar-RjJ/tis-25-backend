@@ -13,13 +13,32 @@ class ColegioController extends Controller
      */
     public function index()
     {
-        $colegios = Colegio::all();
-        return response()->json($colegios->toArray(), 200, [
-            'Content-Type' => 'application/json',
-            'Access-Control-Allow-Origin' => '*',
-            'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers' => 'X-Requested-With, Content-Type, X-Token-Auth, Authorization',
-        ]);
+        try {
+            // Obtener todos los colegios de la base de datos
+            $colegios = Colegio::all();
+            
+            // Log para depuración
+            \Log::info('Colegios obtenidos: ' . count($colegios));
+            
+            // Establecer encabezados CORS explícitamente
+            return response()->json($colegios, 200)
+                ->header('Content-Type', 'application/json')
+                ->header('Access-Control-Allow-Origin', 'http://localhost:5173')
+                ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+                ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization')
+                ->header('Access-Control-Allow-Credentials', 'true');
+        } catch (\Exception $e) {
+            // Log del error para depuración
+            \Log::error('Error en ColegioController@index: ' . $e->getMessage());
+            
+            // Retornar error con encabezados CORS
+            return response()->json(['error' => 'Error al obtener colegios: ' . $e->getMessage()], 500)
+                ->header('Content-Type', 'application/json')
+                ->header('Access-Control-Allow-Origin', 'http://localhost:5173')
+                ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+                ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization')
+                ->header('Access-Control-Allow-Credentials', 'true');
+        }
     }
 
     /**
