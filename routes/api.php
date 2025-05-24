@@ -75,3 +75,7 @@ Route::get('/seed/colegios', [SeedController::class, 'seedColegios']);
 Route::get('/test', function () {
     return response()->json(['message' => 'API funcionando correctamente']);
 });
+
+Route::get('/health', function () {
+    return response()->json(['status' => 'ok']);
+});
