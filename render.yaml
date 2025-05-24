@@ -1,9 +1,9 @@
 services:
   - type: web
     name: tis-25-backend
-    env: php
-    buildCommand: composer install
-    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    env: docker
+    buildCommand: docker build -t tis-25-backend .
+    startCommand: docker run -p $PORT:80 tis-25-backend
     envVars:
       - key: APP_ENV
         value: production
