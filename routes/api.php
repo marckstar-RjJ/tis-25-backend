@@ -39,6 +39,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/students/{id}', [StudentController::class, 'update']);
     Route::delete('/students/{id}', [StudentController::class, 'destroy']);
     Route::get('/students/{id}/areas', [StudentController::class, 'getAreas']);
+    
+    // Ruta para obtener el perfil del estudiante actual
+    Route::get('/student/profile', [StudentController::class, 'getCurrentProfile']);
     Route::get('/students/{id}/available-areas', [StudentController::class, 'getAvailableAreas']);
     Route::post('/students/{id}/enroll-areas', [StudentController::class, 'enrollInAreas']);
 

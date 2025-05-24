@@ -97,6 +97,69 @@ class StudentController extends Controller
         return response()->json($student->areas);
     }
 
+    public function getCurrentProfile(Request $request)
+    {
+        try {
+            // Obtener el usuario autenticado
+            $user = $request->user();
+            
+            if (!$user) {
+                return response()->json(['message' => 'Usuario no autenticado'], 401);
+            }
+            
+            if ($user->tipo_usuario !== 'estudiante') {
+                return response()->json(['message' => 'El usuario no es un estudiante'], 403);
+            }
+            
+            // Buscar el estudiante asociado a la cuenta del usuario
+            $estudiante = DB::table('estudiantes')
+                ->where('cuenta_id', $user->id)
+                ->first();
+                
+            if (!$estudiante) {
+                return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
+            }
+            
+            // Buscar información del colegio si existe
+            $colegio = null;
+            if ($estudiante->colegio_id) {
+                $colegio = DB::table('colegios')
+                    ->where('id', $estudiante->colegio_id)
+                    ->first();
+            }
+            
+            // Combinar los datos del usuario y del estudiante
+            $perfilCompleto = [
+                // Datos de la cuenta
+                'id' => $user->id,
+                'email' => $user->email,
+                'tipo_usuario' => $user->tipo_usuario,
+                'nombre' => $estudiante->nombre,
+                'apellido' => $estudiante->apellido,
+                'ci' => $estudiante->ci,
+                
+                // Datos específicos del estudiante
+                'fecha_nacimiento' => $estudiante->fecha_nacimiento,
+                'curso' => $estudiante->curso,
+                'colegio_id' => $estudiante->colegio_id,
+                'colegio' => $colegio ? $colegio->nombre : null,
+                'celular' => $estudiante->celular,
+                'nombre_tutor' => $estudiante->nombre_tutor,
+                'apellido_tutor' => $estudiante->apellido_tutor,
+                'email_tutor' => $estudiante->email_tutor,
+                'celular_tutor' => $estudiante->celular_tutor,
+                'created_at' => $estudiante->created_at,
+                'updated_at' => $estudiante->updated_at,
+            ];
+            
+            return response()->json($perfilCompleto);
+            
+        } catch (\Exception $e) {
+            \Log::error('Error al obtener el perfil del estudiante: ' . $e->getMessage());
+            return response()->json(['message' => 'Error al obtener el perfil: ' . $e->getMessage()], 500);
+        }
+    }
+    
     public function getAvailableAreas($id)
     {
         $student = Student::findOrFail($id);

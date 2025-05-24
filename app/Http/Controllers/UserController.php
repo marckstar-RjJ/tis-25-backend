@@ -80,19 +80,34 @@ class UserController extends Controller
             \Log::info('Usuario creado:', ['user' => $user->toArray()]);
 
             if ($validatedData['tipoUsuario'] === 'estudiante') {
-                Estudiante::create([
+                // Registrar todos los datos disponibles para depuración
+                \Log::info('Datos para crear estudiante:', [
+                    'cuenta_id' => $user->id,
+                    'validatedData' => $validatedData,
+                    'request_all' => $request->all()
+                ]);
+                
+                // Crear el estudiante con los campos correctos
+                $estudiante = Estudiante::create([
                     'cuenta_id' => $user->id,
                     'nombre' => $validatedData['nombre'],
                     'apellido' => $validatedData['apellidos'],
                     'ci' => $validatedData['ci'],
                     'fecha_nacimiento' => $validatedData['fechaNacimiento'],
-                    'curso' => $validatedData['curso'],
-                    'colegio_id' => $validatedData['colegio'],
+                    'curso' => (int)$validatedData['curso'],
+                    'colegio_id' => (int)$validatedData['colegio'],
                     'celular' => $validatedData['celular'],
                     'nombre_tutor' => $validatedData['nombreTutor'],
                     'apellido_tutor' => $validatedData['apellidosTutor'],
                     'email_tutor' => $validatedData['emailTutor'],
                     'celular_tutor' => $validatedData['celularTutor'],
+                ]);
+                
+                // Registrar el estudiante creado para verificar
+                \Log::info('Estudiante creado:', [
+                    'id' => $estudiante->id,
+                    'curso' => $estudiante->curso,
+                    'colegio_id' => $estudiante->colegio_id
                 ]);
                 \Log::info('Estudiante creado.');
             } else if ($validatedData['tipoUsuario'] === 'tutor') {
@@ -179,24 +194,95 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $validated = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+        try {
+            $validated = $request->validate([
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
 
-        $user = User::where('email', $validated['email'])->first();
+            $user = User::where('email', $validated['email'])->first();
 
-        if (!$user || !Hash::check($validated['password'], $user->password)) {
+            if (!$user || !Hash::check($validated['password'], $user->password)) {
+                return response()->json([
+                    'message' => 'Credenciales inválidas'
+                ], 401);
+            }
+
+            $token = $user->createToken('auth_token')->plainTextToken;
+            
+            // Obtener información completa del perfil según el tipo de usuario
+            $profileData = null;
+            
+            if ($user->tipo_usuario === 'estudiante') {
+                // Cargar los datos del estudiante incluyendo el colegio
+                $estudiante = Estudiante::where('cuenta_id', $user->id)
+                    ->first();
+                    
+                // Si se encontró el estudiante, incluir sus datos
+                if ($estudiante) {
+                    // Obtener el nombre del colegio si existe
+                    $colegio = null;
+                    if ($estudiante->colegio_id) {
+                        $colegio = DB::table('colegios')
+                            ->where('id', $estudiante->colegio_id)
+                            ->first();
+                    }
+                    
+                    // Registrar qué se está devolviendo
+                    \Log::info('Datos de estudiante para login:', [
+                        'estudiante_id' => $estudiante->id,
+                        'curso' => $estudiante->curso,
+                        'colegio_id' => $estudiante->colegio_id,
+                        'colegio' => $colegio ? $colegio->nombre : null
+                    ]);
+                    
+                    // Combinar datos de usuario y estudiante
+                    $userData = $user->toArray();
+                    $profileData = $estudiante->toArray();
+                    
+                    // Añadir el nombre del colegio si existe
+                    if ($colegio) {
+                        $profileData['colegio'] = $colegio->nombre;
+                    }
+                    
+                    // Combinar todos los datos
+                    $fullUserData = array_merge($userData, $profileData);
+                    
+                    return response()->json([
+                        'user' => $fullUserData,
+                        'token' => $token
+                    ]);
+                }
+            } else if ($user->tipo_usuario === 'tutor') {
+                // Cargar los datos del tutor
+                $tutor = Tutor::where('cuenta_id', $user->id)->first();
+                if ($tutor) {
+                    $userData = $user->toArray();
+                    $profileData = $tutor->toArray();
+                    $fullUserData = array_merge($userData, $profileData);
+                    
+                    return response()->json([
+                        'user' => $fullUserData,
+                        'token' => $token
+                    ]);
+                }
+            }
+            
+            // Si no se encontró perfil o no es estudiante/tutor, devolver solo los datos básicos
             return response()->json([
-                'message' => 'Credenciales inválidas'
-            ], 401);
+                'user' => $user,
+                'token' => $token
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error en login:', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'message' => 'Error al iniciar sesión',
+                'error' => $e->getMessage()
+            ], 500);
         }
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'user' => $user,
-            'token' => $token
-        ]);
     }
 } 
