@@ -4,7 +4,7 @@ return [
     'paths' => ['*', 'api/*', 'sanctum/csrf-cookie', 'login', 'logout', 'register', 'registro'],
     'allowed_methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     'allowed_origins' => [
-        env('CORS_ALLOWED_ORIGINS', 'https://tis-25-frontend.netlify.app'),
+        'https://olimpiadas-sansi.netlify.app',
         'http://localhost:5173',
         'http://localhost:5174',
         'http://127.0.0.1:44443'
