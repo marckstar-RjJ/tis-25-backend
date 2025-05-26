@@ -2,7 +2,7 @@
 FROM php:8.2-fpm-alpine as builder
 
 # Add potentially missing dependencies for extensions
-RUN apk add --no-cache libexif libpq
+RUN apk add --no-cache libexif libpq libpng-dev libjpeg-turbo-dev
 
 # Install PHP extensions
 RUN apk add --no-cache \
@@ -20,6 +20,7 @@ RUN docker-php-ext-install -j$(nproc) exif
 RUN docker-php-ext-install -j$(nproc) pcntl
 RUN docker-php-ext-install -j$(nproc) bcmath
 RUN docker-php-ext-install -j$(nproc) ctype
+RUN docker-php-ext-install -j$(nproc) gd
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
