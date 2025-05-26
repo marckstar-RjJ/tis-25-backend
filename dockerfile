@@ -57,8 +57,11 @@ RUN chmod -R 775 storage bootstrap/cache
 # Stage 2: Production - Setup Nginx and PHP-FPM
 FROM php:8.2-fpm-alpine
 
-# Install Nginx
-RUN apk add --no-cache nginx
+# Install Nginx and PostgreSQL client libraries for pdo_pgsql
+RUN apk add --no-cache nginx postgresql-client
+
+# Install PHP extensions needed in stage-1
+RUN docker-php-ext-install -j$(nproc) pdo_pgsql
 
 # Remove default Nginx config directory
 RUN rm -rf /etc/nginx/conf.d/
