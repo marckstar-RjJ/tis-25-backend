@@ -1,8 +1,8 @@
 # Stage 1: Builder - Install dependencies
 FROM php:8.2-fpm-alpine as builder
 
-# Add potentially missing dependencies for extensions
-RUN apk add --no-cache libexif libpq libpng-dev libjpeg-turbo-dev
+# Add potentially missing dependencies for extensions and git
+RUN apk add --no-cache libexif libpq libpng-dev libjpeg-turbo-dev git
 
 # Install PHP extensions
 RUN apk add --no-cache \
