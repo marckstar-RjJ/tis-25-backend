@@ -28,21 +28,21 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set working directory
 WORKDIR /app
 
-# Copy application code first
-COPY . /app
+# Copy composer files first for better caching
+COPY composer.json composer.lock ./
 
-# Copy composer files specifically for caching
-COPY composer.json composer.lock /app/
+# Set Composer environment variables
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_NO_INTERACTION=1
 
-# Clear Composer cache and install dependencies verbosely
-RUN composer clear-cache
-RUN composer install --no-dev --optimize-autoloader -v
+# Install dependencies
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
-# Run npm install and build (if you use frontend assets built by Vite)
-# RUN apk add --no-cache nodejs npm
-# COPY package.json package-lock.json vite.config.js ./
-# RUN npm install
-# RUN npm run build
+# Copy the rest of the application
+COPY . .
+
+# Run post-install scripts
+RUN composer dump-autoload --optimize
 
 # Set permissions for storage and bootstrap cache
 RUN chown -R www-data:www-data storage bootstrap/cache
