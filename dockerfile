@@ -1,6 +1,9 @@
 # Stage 1: Builder - Install dependencies
 FROM php:8.2-fpm-alpine as builder
 
+# Add potentially missing dependencies for extensions
+RUN apk add --no-cache libexif libpq
+
 # Install PHP extensions
 RUN apk add --no-cache \
     autoconf \
@@ -10,17 +13,16 @@ RUN apk add --no-cache \
     php82-dev \
     postgresql-dev # Required for pdo_pgsql
 
-RUN docker-php-ext-install -j$(nproc) \
-    pdo_pgsql \
-    mbstring \
-    exif \
-    pcntl \
-    bcmath \
-    ctype \
-    json \
-    xml \
-    tokenizer \
-    openssl # openssl might be included by default, but ensure it
+RUN docker-php-ext-install -j$(nproc) pdo_pgsql
+RUN docker-php-ext-install -j$(nproc) mbstring
+RUN docker-php-ext-install -j$(nproc) exif
+RUN docker-php-ext-install -j$(nproc) pcntl
+RUN docker-php-ext-install -j$(nproc) bcmath
+RUN docker-php-ext-install -j$(nproc) ctype
+RUN docker-php-ext-install -j$(nproc) json
+RUN docker-php-ext-install -j$(nproc) xml
+RUN docker-php-ext-install -j$(nproc) tokenizer
+RUN docker-php-ext-install -j$(nproc) openssl
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
