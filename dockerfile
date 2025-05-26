@@ -11,7 +11,8 @@ RUN apk add --no-cache \
     make \
     php82-pear \
     php82-dev \
-    postgresql-dev # Required for pdo_pgsql
+    postgresql-dev \
+    oniguruma-dev # Required for mbstring
 
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql
 RUN docker-php-ext-install -j$(nproc) mbstring
