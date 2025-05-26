@@ -30,8 +30,9 @@ WORKDIR /app
 # Copy application code (composer.json and composer.lock first for caching)
 COPY composer.json composer.lock ./
 
-# Install Composer dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Clear Composer cache and install dependencies verbosely
+RUN composer clear-cache
+RUN composer install --no-dev --optimize-autoloader -v
 
 # Copy the rest of the application code
 COPY . .
