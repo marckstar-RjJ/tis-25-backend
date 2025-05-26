@@ -58,7 +58,7 @@ RUN chmod -R 775 storage bootstrap/cache
 FROM php:8.2-fpm-alpine
 
 # Install Nginx and PostgreSQL client libraries for pdo_pgsql
-RUN apk add --no-cache nginx postgresql-client
+RUN apk add --no-cache nginx postgresql-client postgresql-dev
 
 # Install PHP extensions needed in stage-1
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql
