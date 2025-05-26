@@ -23,7 +23,7 @@ class ColegioController extends Controller
             // Establecer encabezados CORS explícitamente
             return response()->json($colegios, 200)
                 ->header('Content-Type', 'application/json')
-                ->header('Access-Control-Allow-Origin', 'http://localhost:5173')
+                ->header('Access-Control-Allow-Origin', 'https://olimpiadas-sansi.netlify.app')
                 ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
                 ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization')
                 ->header('Access-Control-Allow-Credentials', 'true');
@@ -34,7 +34,7 @@ class ColegioController extends Controller
             // Retornar error con encabezados CORS
             return response()->json(['error' => 'Error al obtener colegios: ' . $e->getMessage()], 500)
                 ->header('Content-Type', 'application/json')
-                ->header('Access-Control-Allow-Origin', 'http://localhost:5173')
+                ->header('Access-Control-Allow-Origin', 'https://olimpiadas-sansi.netlify.app')
                 ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
                 ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization')
                 ->header('Access-Control-Allow-Credentials', 'true');
