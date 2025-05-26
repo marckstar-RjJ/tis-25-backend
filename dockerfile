@@ -41,6 +41,9 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 # Copy the rest of the application
 COPY . .
 
+# Generate APP_KEY
+RUN php artisan key:generate
+
 # Run post-install scripts
 RUN composer dump-autoload --optimize
 
