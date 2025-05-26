@@ -2300,3 +2300,98 @@ LINE 1: insert into \"cuentas\" (\"name\", \"email\", \"email_verified_at\",...
 "} 
 [2025-05-24 22:10:11] local.INFO: Datos de estudiante para login: {"estudiante_id":6,"curso":3,"colegio_id":1,"colegio":"Instituto Eduardo Laredo"} 
 [2025-05-24 22:10:47] local.INFO: Datos de estudiante para login: {"estudiante_id":6,"curso":3,"colegio_id":1,"colegio":"Instituto Eduardo Laredo"} 
+[2025-05-26 02:39:48] local.INFO: Colegios obtenidos: 1  
+[2025-05-26 02:43:09] local.ERROR: The "intl" PHP extension is required to use the [format] method. {"exception":"[object] (RuntimeException(code: 0): The \"intl\" PHP extension is required to use the [format] method. at C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php:386)
+[stacktrace]
+#0 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(38): Illuminate\\Support\\Number::ensureIntlExtensionIsInstalled()
+#1 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(173): Illuminate\\Support\\Number::format(376, 2, NULL)
+#2 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(176): Illuminate\\Support\\Number::fileSize(376, 2)
+#3 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(136): Illuminate\\Database\\Console\\ShowCommand->displayForCli(Array)
+#4 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(65): Illuminate\\Database\\Console\\ShowCommand->display(Array)
+#5 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\ShowCommand->handle(Object(Illuminate\\Database\\DatabaseManager))
+#6 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#7 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#8 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#9 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#10 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#11 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\ShowCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\proyecto_tis25\\tis-25-backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#19 {main}
+"} 
+[2025-05-26 02:43:22] local.ERROR: The "intl" PHP extension is required to use the [format] method. {"exception":"[object] (RuntimeException(code: 0): The \"intl\" PHP extension is required to use the [format] method. at C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php:386)
+[stacktrace]
+#0 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(38): Illuminate\\Support\\Number::ensureIntlExtensionIsInstalled()
+#1 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(173): Illuminate\\Support\\Number::format(376, 2, NULL)
+#2 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(176): Illuminate\\Support\\Number::fileSize(376, 2)
+#3 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(136): Illuminate\\Database\\Console\\ShowCommand->displayForCli(Array)
+#4 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(65): Illuminate\\Database\\Console\\ShowCommand->display(Array)
+#5 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\ShowCommand->handle(Object(Illuminate\\Database\\DatabaseManager))
+#6 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#7 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#8 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#9 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#10 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#11 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\ShowCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\proyecto_tis25\\tis-25-backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#19 {main}
+"} 
+[2025-05-26 02:45:01] local.ERROR: The "intl" PHP extension is required to use the [format] method. {"exception":"[object] (RuntimeException(code: 0): The \"intl\" PHP extension is required to use the [format] method. at C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php:386)
+[stacktrace]
+#0 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(38): Illuminate\\Support\\Number::ensureIntlExtensionIsInstalled()
+#1 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(173): Illuminate\\Support\\Number::format(376, 2, NULL)
+#2 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(176): Illuminate\\Support\\Number::fileSize(376, 2)
+#3 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(136): Illuminate\\Database\\Console\\ShowCommand->displayForCli(Array)
+#4 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(65): Illuminate\\Database\\Console\\ShowCommand->display(Array)
+#5 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\ShowCommand->handle(Object(Illuminate\\Database\\DatabaseManager))
+#6 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#7 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#8 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#9 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#10 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#11 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\ShowCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\proyecto_tis25\\tis-25-backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#19 {main}
+"} 
+[2025-05-26 02:45:43] local.ERROR: The "intl" PHP extension is required to use the [format] method. {"exception":"[object] (RuntimeException(code: 0): The \"intl\" PHP extension is required to use the [format] method. at C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php:386)
+[stacktrace]
+#0 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(38): Illuminate\\Support\\Number::ensureIntlExtensionIsInstalled()
+#1 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Number.php(173): Illuminate\\Support\\Number::format(376, 2, NULL)
+#2 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(176): Illuminate\\Support\\Number::fileSize(376, 2)
+#3 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(136): Illuminate\\Database\\Console\\ShowCommand->displayForCli(Array)
+#4 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\ShowCommand.php(65): Illuminate\\Database\\Console\\ShowCommand->display(Array)
+#5 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\ShowCommand->handle(Object(Illuminate\\Database\\DatabaseManager))
+#6 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#7 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#8 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#9 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(754): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#10 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#11 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(1094): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(342): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\ShowCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 C:\\proyecto_tis25\\tis-25-backend\\vendor\\symfony\\console\\Application.php(193): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\proyecto_tis25\\tis-25-backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1234): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\proyecto_tis25\\tis-25-backend\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#19 {main}
+"} 
+[2025-05-26 02:50:36] local.INFO: Colegios obtenidos: 1  
+[2025-05-26 02:50:39] local.INFO: Colegios obtenidos: 1  
