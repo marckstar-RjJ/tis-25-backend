@@ -88,7 +88,7 @@ RUN touch /var/log/nginx/error.log /var/log/nginx/access.log && chmod 666 /var/l
 EXPOSE 80
 
 # Start Nginx and PHP-FPM
-CMD ["sh", "-c", "nginx && php-fpm"]
+CMD ["sh", "-c", "php artisan migrate --force && nginx && php-fpm"]
 
 
 ##hola
