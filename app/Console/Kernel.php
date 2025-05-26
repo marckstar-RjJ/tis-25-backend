@@ -20,6 +20,11 @@ class Kernel extends ConsoleKernel
             ->withoutOverlapping()
             ->onOneServer()
             ->appendOutputTo(storage_path('logs/ordenes-expiracion.log'));
+
+        // Ejecutar backup diario a las 2 AM
+        $schedule->command('backup:database')
+            ->dailyAt('02:00')
+            ->appendOutputTo(storage_path('logs/backup.log'));
     }
 
     /**

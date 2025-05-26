@@ -11,6 +11,7 @@ use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\LogController;
 
 // Rutas públicas
 Route::post('/login', [UserController::class, 'login']);
@@ -62,6 +63,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/ordenes', [OrdenDePagoController::class, 'listarOrdenes']);
     Route::patch('/ordenes/{id}/aprobar', [OrdenDePagoController::class, 'aprobarPago']);
     Route::patch('/ordenes/{id}/rechazar', [OrdenDePagoController::class, 'rechazarPago']);
+
+    // Rutas para logs
+    Route::post('/logs', [LogController::class, 'store']);
+    Route::get('/logs', [LogController::class, 'index'])->middleware('auth');
 });
 
 // Rutas solo para administradores
