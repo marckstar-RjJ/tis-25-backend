@@ -63,6 +63,9 @@ COPY --from=builder /app /var/www/html
 # Copy custom Nginx configuration to replace the main config
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# Debug: Print the content of the copied Nginx config
+RUN cat /etc/nginx/nginx.conf
+
 # Set permissions again for the final image
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
