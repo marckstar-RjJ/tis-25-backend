@@ -20,7 +20,7 @@ RUN docker-php-ext-install -j$(nproc) exif
 RUN docker-php-ext-install -j$(nproc) pcntl
 RUN docker-php-ext-install -j$(nproc) bcmath
 RUN docker-php-ext-install -j$(nproc) ctype
-RUN docker-php-ext-install -j$(nproc) tokenizer
+RUN docker-php-ext-install -j$(nproc) xml
 RUN docker-php-ext-install -j$(nproc) openssl
 
 # Install Composer
