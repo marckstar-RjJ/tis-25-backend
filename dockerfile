@@ -69,8 +69,14 @@ RUN cat /etc/nginx/nginx.conf
 # Set permissions again for the final image
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Configure session directory
+RUN mkdir -p /var/lib/php/sessions && chmod 777 /var/lib/php/sessions
+
 # Ensure logs are writable by Nginx/PHP
 RUN chmod -R 777 /var/www/html/storage/logs
+RUN mkdir -p /var/log/nginx && chmod 777 /var/log/nginx
+RUN touch /var/log/nginx/error.log /var/log/nginx/access.log && chmod 666 /var/log/nginx/error.log /var/log/nginx/access.log
 
 # Expose port 80 (Nginx default)
 EXPOSE 80

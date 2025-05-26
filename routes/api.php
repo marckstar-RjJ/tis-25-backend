@@ -80,5 +80,19 @@ Route::get('/test', function () {
 });
 
 Route::get('/health', function () {
-    return response()->json(['status' => 'ok']);
+    try {
+        \DB::connection()->getPdo();
+        return response()->json([
+            'status' => 'ok',
+            'database' => 'connected',
+            'timestamp' => now()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'database' => 'disconnected',
+            'message' => $e->getMessage(),
+            'timestamp' => now()
+        ], 500);
+    }
 });
