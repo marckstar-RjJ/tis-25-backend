@@ -54,11 +54,14 @@ FROM php:8.2-fpm-alpine
 # Install Nginx
 RUN apk add --no-cache nginx
 
+# Remove default Nginx config directory
+RUN rm -rf /etc/nginx/conf.d/
+
 # Copy application code from builder stage
 COPY --from=builder /app /var/www/html
 
-# Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom Nginx configuration to replace the main config
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Set permissions again for the final image
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
