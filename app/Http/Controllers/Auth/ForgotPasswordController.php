@@ -45,11 +45,20 @@ class ForgotPasswordController extends Controller
 
     public function getEmailFromToken(Request $request)
     {
-        $request->validate([
-            'token' => 'required'
-        ]);
-
         try {
+            // Validar token
+            $request->validate([
+                'token' => 'required|string|max:255'
+            ]);
+
+            // Verificar que el token no esté vacío
+            if (empty($request->token)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Token no proporcionado'
+                ], 400);
+            }
+
             // Verificar token
             $passwordReset = DB::table('password_resets')
                 ->where('token', $request->token)
@@ -87,10 +96,18 @@ class ForgotPasswordController extends Controller
                 ]
             ]);
 
-        } catch (\Exception $e) {
+        } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Error al procesar la solicitud: ' . $e->getMessage()
+                'message' => 'Datos inválidos: ' . $e->getMessage()
+            ], 422);
+        } catch (\Exception $e) {
+            // Loguear el error para debugging
+            \Log::error('Error en getEmailFromToken: ' . $e->getMessage());
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Error interno del servidor'
             ], 500);
         }
     }
