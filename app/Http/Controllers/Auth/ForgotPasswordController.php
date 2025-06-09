@@ -49,6 +49,8 @@ class ForgotPasswordController extends Controller
             'token' => 'required'
         ]);
 
+        error_log('Token recibido: ' . $request->token);
+
         try {
             // Verificar token
             $passwordReset = DB::table('password_resets')
@@ -88,6 +90,7 @@ class ForgotPasswordController extends Controller
             ]);
 
         } catch (\Exception $e) {
+            error_log('Error en getEmailFromToken: ' . $e->getMessage());
             return response()->json([
                 'success' => false,
                 'message' => 'Error al procesar la solicitud: ' . $e->getMessage()
