@@ -34,7 +34,7 @@ class ForgotPasswordController extends Controller
         // Guardar token con expiración de 24 horas
         DB::table('password_resets')->insert([
             'email' => $user->email,
-            'token' => Hash::make($token),
+            'token' => $token,
             'created_at' => Carbon::now()
         ]);
 
@@ -49,32 +49,50 @@ class ForgotPasswordController extends Controller
             'token' => 'required'
         ]);
 
-        // Verificar token
-        $passwordReset = DB::table('password_resets')
-            ->where('token', $request->token)
-            ->first();
+        try {
+            // Verificar token
+            $passwordReset = DB::table('password_resets')
+                ->where('token', $request->token)
+                ->first();
 
-        if (!$passwordReset) {
+            if (!$passwordReset) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Token inválido'
+                ], 404);
+            }
+
+            // Verificar si el token ha expirado (24 horas)
+            if (Carbon::parse($passwordReset->created_at)->addHours(24) < Carbon::now()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Token expirado'
+                ], 400);
+            }
+
+            // Verificar que el email existe en la tabla cuentas
+            $user = User::where('email', $passwordReset->email)->first();
+            
+            if (!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Usuario no encontrado'
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => [
+                    'email' => $user->email
+                ]
+            ]);
+
+        } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Token inválido'
-            ], 404);
+                'message' => 'Error al procesar la solicitud: ' . $e->getMessage()
+            ], 500);
         }
-
-        // Verificar si el token ha expirado (24 horas)
-        if (Carbon::parse($passwordReset->created_at)->addHours(24) < Carbon::now()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Token expirado'
-            ], 400);
-        }
-
-        return response()->json([
-            'success' => true,
-            'data' => [
-                'email' => $passwordReset->email
-            ]
-        ]);
     }
 
     public function resetPassword(Request $request)
@@ -85,23 +103,44 @@ class ForgotPasswordController extends Controller
             'password' => 'required|min:6|confirmed'
         ]);
 
-        // Verificar token
-        $passwordReset = DB::table('password_resets')
-            ->where('token', $request->token)
-            ->first();
+        try {
+            // Verificar token
+            $passwordReset = DB::table('password_resets')
+                ->where('token', $request->token)
+                ->first();
 
-        if (!$passwordReset) {
-            return response()->json(['message' => 'Token inválido'], 404);
-        }
+            if (!$passwordReset) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Token inválido'
+                ], 404);
+            }
 
-        // Verificar si el token ha expirado (24 horas)
-        if (Carbon::parse($passwordReset->created_at)->addHours(24) < Carbon::now()) {
-            return response()->json(['message' => 'Token expirado'], 400);
-        }
+            // Verificar si el token ha expirado (24 horas)
+            if (Carbon::parse($passwordReset->created_at)->addHours(24) < Carbon::now()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Token expirado'
+                ], 400);
+            }
 
-        // Actualizar la contraseña del usuario
-        $user = User::where('email', $request->email)->first();
-        if ($user) {
+            // Verificar si el email coincide
+            if ($passwordReset->email !== $request->email) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Email no coincide'
+                ], 400);
+            }
+
+            // Actualizar la contraseña del usuario
+            $user = User::where('email', $request->email)->first();
+            if (!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Usuario no encontrado'
+                ], 404);
+            }
+
             $user->password = Hash::make($request->password);
             $user->save();
 
@@ -111,10 +150,15 @@ class ForgotPasswordController extends Controller
                 ->delete();
 
             return response()->json([
+                'success' => true,
                 'message' => 'Contraseña actualizada exitosamente'
             ]);
-        }
 
-        return response()->json(['message' => 'Usuario no encontrado'], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al procesar la solicitud: ' . $e->getMessage()
+            ], 500);
+        }
     }
 }
