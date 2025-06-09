@@ -51,7 +51,7 @@ class ForgotPasswordController extends Controller
 
         // Verificar token
         $passwordReset = DB::table('password_resets')
-            ->where('token', Hash::make($request->token))
+            ->where('token', $request->token)
             ->first();
 
         if (!$passwordReset) {
@@ -74,19 +74,6 @@ class ForgotPasswordController extends Controller
             'data' => [
                 'email' => $passwordReset->email
             ]
-        ]);
-
-        if (!$passwordReset) {
-            return response()->json(['message' => 'Token inválido'], 404);
-        }
-
-        // Verificar si el token ha expirado (24 horas)
-        if (Carbon::parse($passwordReset->created_at)->addHours(24) < Carbon::now()) {
-            return response()->json(['message' => 'Token expirado'], 400);
-        }
-
-        return response()->json([
-            'email' => $passwordReset->email
         ]);
     }
 
