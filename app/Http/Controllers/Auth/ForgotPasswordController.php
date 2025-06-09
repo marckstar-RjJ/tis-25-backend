@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\DB;
 
 class ForgotPasswordController extends Controller
 {
+    public function __construct()
+    {
+        // No necesitamos middleware de autenticación para estas rutas
+        $this->middleware('auth:api')->except([
+            'checkUserEmail',
+            'generateResetToken',
+            'getEmailFromToken',
+            'resetPassword'
+        ]);
+    }
     public function checkUserEmail(Request $request)
     {
         $user = User::where('email', $request->email)->first();
