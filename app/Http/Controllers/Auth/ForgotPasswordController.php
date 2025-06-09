@@ -51,7 +51,7 @@ class ForgotPasswordController extends Controller
 
         // Verificar token
         $passwordReset = DB::table('password_resets')
-            ->where('token', Hash::make($request->token))
+            ->where('token', $request->token)
             ->first();
 
         if (!$passwordReset) {
