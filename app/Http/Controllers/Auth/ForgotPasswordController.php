@@ -57,7 +57,7 @@ class ForgotPasswordController extends Controller
         try {
             // Buscar el token ignorando espacios y case (colación insensible a mayúsculas/minúsculas)
             $passwordReset = DB::table('password_resets')
-                ->whereRaw('BINARY TRIM(token) = BINARY ?', [trim($request->token)])
+                ->whereRaw('TRIM(token) = TRIM(?)', [trim($request->token)])
                 ->first();
 
             if (!$passwordReset) {
