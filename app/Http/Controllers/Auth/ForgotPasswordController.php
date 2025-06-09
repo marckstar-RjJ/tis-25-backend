@@ -12,16 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class ForgotPasswordController extends Controller
 {
-    public function __construct()
-    {
-        // No necesitamos middleware de autenticación para estas rutas
-        $this->middleware('auth:api')->except([
-            'checkUserEmail',
-            'generateResetToken',
-            'getEmailFromToken',
-            'resetPassword'
-        ]);
-    }
     public function checkUserEmail(Request $request)
     {
         $user = User::where('email', $request->email)->first();
@@ -55,20 +45,11 @@ class ForgotPasswordController extends Controller
 
     public function getEmailFromToken(Request $request)
     {
+        $request->validate([
+            'token' => 'required'
+        ]);
+
         try {
-            // Validar token
-            $request->validate([
-                'token' => 'required|string|max:255'
-            ]);
-
-            // Verificar que el token no esté vacío
-            if (empty($request->token)) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Token no proporcionado'
-                ], 400);
-            }
-
             // Verificar token
             $passwordReset = DB::table('password_resets')
                 ->where('token', $request->token)
@@ -106,18 +87,10 @@ class ForgotPasswordController extends Controller
                 ]
             ]);
 
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Datos inválidos: ' . $e->getMessage()
-            ], 422);
         } catch (\Exception $e) {
-            // Loguear el error para debugging
-            \Log::error('Error en getEmailFromToken: ' . $e->getMessage());
-            
             return response()->json([
                 'success' => false,
-                'message' => 'Error interno del servidor'
+                'message' => 'Error al procesar la solicitud: ' . $e->getMessage()
             ], 500);
         }
     }
