@@ -59,8 +59,9 @@ class UserController extends Controller
             } else if ($request->input('tipoUsuario') === 'tutor') {
                 $rules = array_merge($rules, [
                     'celular' => 'required|string|max:20',
-                    'colegio' => 'nullable|exists:colegios,id',
+                    'colegio' => 'required|exists:colegios,id',
                     'departamento' => 'nullable|string|max:255',
+                    'verification_code' => 'required|string|size:4',
                 ]);
             }
 
@@ -111,6 +112,12 @@ class UserController extends Controller
                 ]);
                 \Log::info('Estudiante creado.');
             } else if ($validatedData['tipoUsuario'] === 'tutor') {
+                $colegio = \App\Models\Colegio::findOrFail($validatedData['colegio']);
+                
+                if ($colegio->verification_code !== $validatedData['verification_code']) {
+                    throw new \Exception('Código de verificación incorrecto para el colegio seleccionado');
+                }
+
                 \Log::info('Creando tutor con datos:', [
                     'cuenta_id' => $user->id,
                     'nombre' => $validatedData['nombre'],
