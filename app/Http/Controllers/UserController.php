@@ -115,7 +115,7 @@ class UserController extends Controller
                 $colegio = \App\Models\Colegio::findOrFail($validatedData['colegio']);
                 
                 if ($colegio->verification_code !== $validatedData['verification_code']) {
-                    throw new \Exception('Código de verificación incorrecto para el colegio seleccionado');
+                    throw new \Exception('Código de verificación incorrecto para el colegio seleccionado', 422);
                 }
 
                 \Log::info('Creando tutor con datos:', [
