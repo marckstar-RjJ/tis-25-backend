@@ -54,6 +54,13 @@ class ForgotPasswordController extends Controller
         error_log('Tokens en la base de datos: ' . json_encode($allTokens));
         error_log('Token recibido: ' . $request->token);
 
+        // Comparar manualmente en PHP
+        foreach ($allTokens as $dbToken) {
+            if (trim($dbToken) === trim($request->token)) {
+                error_log('¡Coincidencia encontrada en PHP!: ' . $dbToken);
+            }
+        }
+
         try {
             // Buscar el token ignorando espacios y case (colación insensible a mayúsculas/minúsculas)
             $passwordReset = DB::table('password_resets')
