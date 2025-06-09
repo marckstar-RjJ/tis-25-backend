@@ -17,6 +17,11 @@ use App\Http\Controllers\LogController;
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'store']);
 
+// Rutas para recuperación de contraseña
+Route::post('/forgot-password/check-email', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'checkUserEmail']);
+Route::post('/forgot-password/generate-token', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'generateResetToken']);
+Route::post('/forgot-password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'resetPassword']);
+
 // Rutas para colegios - Acceso público solo para listar y ver detalles
 Route::get('/colegios', [ColegioController::class, 'index']);
 Route::get('/colegios/{id}', [ColegioController::class, 'show']);
