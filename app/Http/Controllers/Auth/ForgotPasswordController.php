@@ -49,12 +49,15 @@ class ForgotPasswordController extends Controller
             'token' => 'required'
         ]);
 
+        // Mostrar todos los tokens en la base de datos para depuración
+        $allTokens = DB::table('password_resets')->pluck('token');
+        error_log('Tokens en la base de datos: ' . json_encode($allTokens));
         error_log('Token recibido: ' . $request->token);
 
         try {
-            // Verificar token
+            // Buscar el token ignorando espacios y case (colación insensible a mayúsculas/minúsculas)
             $passwordReset = DB::table('password_resets')
-                ->where('token', $request->token)
+                ->whereRaw('BINARY TRIM(token) = BINARY ?', [trim($request->token)])
                 ->first();
 
             if (!$passwordReset) {
