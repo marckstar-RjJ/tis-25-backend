@@ -53,12 +53,13 @@ class ColegioController extends Controller
                 'telefono' => 'required|string|max:20',
             ]);
 
-            \Log::info('Datos validados:', $validatedData);
+            \Log::error('=== INICIO CREACIÓN COLEGIO ===');
+            \Log::error('Datos validados: ' . json_encode($validatedData));
 
             // Generar código de verificación único de 4 dígitos
             do {
                 $codigo = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
-                \Log::info('Código generado: ' . $codigo);
+                \Log::error('Código generado: ' . $codigo);
             } while (Colegio::where('verification_code', $codigo)->exists());
 
             $colegio = new Colegio();
@@ -67,20 +68,21 @@ class ColegioController extends Controller
             $colegio->telefono = $validatedData['telefono'];
             $colegio->verification_code = $codigo;
 
-            \Log::info('Colegio antes de guardar:', [
+            \Log::error('Colegio antes de guardar: ' . json_encode([
                 'nombre' => $colegio->nombre,
                 'direccion' => $colegio->direccion,
                 'telefono' => $colegio->telefono,
                 'verification_code' => $colegio->verification_code
-            ]);
+            ]));
 
             $colegio->save();
 
-            \Log::info('Colegio después de guardar:', [
+            \Log::error('Colegio después de guardar: ' . json_encode([
                 'id' => $colegio->id,
                 'nombre' => $colegio->nombre,
                 'verification_code' => $colegio->verification_code
-            ]);
+            ]));
+            \Log::error('=== FIN CREACIÓN COLEGIO ===');
 
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
