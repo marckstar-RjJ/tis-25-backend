@@ -75,12 +75,12 @@ class ColegioController extends Controller
             } while (Colegio::where('verification_code', $codigo)->exists());
 
             // Crear el colegio usando el modelo
-            $colegio = new Colegio();
-            $colegio->nombre = $validatedData['nombre'];
-            $colegio->direccion = $validatedData['direccion'];
-            $colegio->telefono = $validatedData['telefono'];
-            $colegio->verification_code = $codigo;
-            $colegio->save();
+            $colegio = Colegio::create([
+                'nombre' => $validatedData['nombre'],
+                'direccion' => $validatedData['direccion'],
+                'telefono' => $validatedData['telefono'],
+                'verification_code' => $codigo
+            ]);
 
             \Log::info('Colegio creado: ' . json_encode([
                 'id' => $colegio->id,
