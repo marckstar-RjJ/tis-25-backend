@@ -12,13 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('colegios', function (Blueprint $table) {
-            // Primero, actualizar los registros existentes que tienen verification_code nulo
+        // Primero, actualizar los registros existentes que tienen verification_code nulo
+        $colegios = DB::table('colegios')->whereNull('verification_code')->get();
+        foreach ($colegios as $colegio) {
+            $codigo = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
             DB::table('colegios')
-                ->whereNull('verification_code')
-                ->update(['verification_code' => DB::raw("LPAD(FLOOR(RAND() * 10000), 4, '0')")]);
+                ->where('id', $colegio->id)
+                ->update(['verification_code' => $codigo]);
+        }
 
-            // Luego, hacer que la columna no sea nullable
+        // Luego, hacer que la columna no sea nullable
+        Schema::table('colegios', function (Blueprint $table) {
             $table->string('verification_code', 4)->nullable(false)->change();
         });
     }
