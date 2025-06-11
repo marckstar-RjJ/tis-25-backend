@@ -50,7 +50,7 @@ class ColegioController extends Controller
             $validatedData = $request->validate([
                 'nombre' => 'required|string|max:255',
                 'direccion' => 'required|string|max:255',
-                'telefonoReferencia' => 'required|string|max:20',
+                'telefono' => 'required|string|max:20',
             ]);
 
             // Generar código de verificación único de 4 dígitos
@@ -61,9 +61,15 @@ class ColegioController extends Controller
             $colegio = new Colegio();
             $colegio->nombre = $validatedData['nombre'];
             $colegio->direccion = $validatedData['direccion'];
-            $colegio->telefono = $validatedData['telefonoReferencia'];
+            $colegio->telefono = $validatedData['telefono'];
             $colegio->verification_code = $codigo;
             $colegio->save();
+
+            \Log::info('Colegio creado:', [
+                'id' => $colegio->id,
+                'nombre' => $colegio->nombre,
+                'verification_code' => $colegio->verification_code
+            ]);
 
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
@@ -80,6 +86,7 @@ class ColegioController extends Controller
                 'errores' => $e->errors()
             ], 422);
         } catch (\Exception $e) {
+            \Log::error('Error al crear colegio: ' . $e->getMessage());
             return response()->json([
                 'mensaje' => 'Error al crear colegio',
                 'error' => $e->getMessage()
