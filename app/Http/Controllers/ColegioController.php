@@ -58,15 +58,11 @@ class ColegioController extends Controller
             $colegioData = [
                 'nombre' => $validatedData['nombre'],
                 'direccion' => $validatedData['direccion'],
-                'telefono' => $validatedData['telefonoReferencia'],
-                'verification_code' => $validatedData['codigoColegio']
+                'telefono' => $validatedData['telefonoReferencia'], // Mapear telefonoReferencia a telefono
+                'verification_code' => $validatedData['codigoColegio'], // Mapear codigoColegio a verification_code
             ];
 
-            \Log::info('Datos del colegio a crear:', $colegioData);
-
             $colegio = Colegio::create($colegioData);
-
-            \Log::info('Colegio creado:', ['id' => $colegio->id, 'verification_code' => $colegio->verification_code]);
 
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
@@ -78,13 +74,11 @@ class ColegioController extends Controller
                 'Access-Control-Allow-Headers' => 'X-Requested-With, Content-Type, X-Token-Auth, Authorization',
             ]);
         } catch (ValidationException $e) {
-            \Log::error('Error de validación:', $e->errors());
             return response()->json([
                 'mensaje' => 'Error de validación',
                 'errores' => $e->errors()
             ], 422);
         } catch (\Exception $e) {
-            \Log::error('Error al crear colegio:', ['error' => $e->getMessage()]);
             return response()->json([
                 'mensaje' => 'Error al crear colegio',
                 'error' => $e->getMessage()
