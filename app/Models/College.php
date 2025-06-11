@@ -15,6 +15,7 @@ class College extends Model
         'nombre',
         'direccion',
         'telefono',
+        'verification_code'
     ];
 
     public function students()
