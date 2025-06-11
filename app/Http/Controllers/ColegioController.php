@@ -51,14 +51,18 @@ class ColegioController extends Controller
                 'nombre' => 'required|string|max:255',
                 'direccion' => 'required|string|max:255',
                 'telefonoReferencia' => 'required|string|max:20',
-                'codigoColegio' => 'required|string|max:4|unique:colegios,verification_code',
             ]);
+
+            // Generar código de verificación único de 4 dígitos
+            do {
+                $codigo = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
+            } while (Colegio::where('verification_code', $codigo)->exists());
 
             $colegio = new Colegio();
             $colegio->nombre = $validatedData['nombre'];
             $colegio->direccion = $validatedData['direccion'];
             $colegio->telefono = $validatedData['telefonoReferencia'];
-            $colegio->verification_code = $validatedData['codigoColegio'];
+            $colegio->verification_code = $codigo;
             $colegio->save();
 
             return response()->json([
