@@ -62,6 +62,9 @@ class ColegioController extends Controller
                 'verification_code' => $validatedData['codigoColegio'], // Mapear codigoColegio a verification_code
             ];
 
+            // Log para depuración: Verificar qué datos se están pasando para la creación del colegio
+            \Log::info('Data for Colegio creation: ' . json_encode($colegioData));
+
             $colegio = Colegio::create($colegioData);
 
             return response()->json([
