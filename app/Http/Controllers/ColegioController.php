@@ -74,20 +74,14 @@ class ColegioController extends Controller
                 \Log::info('Código generado: ' . $codigo);
             } while (Colegio::where('verification_code', $codigo)->exists());
 
-            // Crear el colegio usando DB::table para asegurar que todos los campos se incluyan
-            $id = DB::table('colegios')->insertGetId([
-                'nombre' => $validatedData['nombre'],
-                'direccion' => $validatedData['direccion'],
-                'telefono' => $validatedData['telefono'],
-                'verification_code' => $codigo,
-                'created_at' => now(),
-                'updated_at' => now()
-            ]);
+            // Crear el colegio usando el modelo
+            $colegio = new Colegio();
+            $colegio->nombre = $validatedData['nombre'];
+            $colegio->direccion = $validatedData['direccion'];
+            $colegio->telefono = $validatedData['telefono'];
+            $colegio->verification_code = $codigo;
+            $colegio->save();
 
-            \Log::info('ID del colegio creado: ' . $id);
-
-            // Obtener el colegio recién creado
-            $colegio = Colegio::find($id);
             \Log::info('Colegio creado: ' . json_encode([
                 'id' => $colegio->id,
                 'nombre' => $colegio->nombre,
