@@ -14,8 +14,8 @@ class ColegioController extends Controller
     public function index()
     {
         try {
-            // Obtener todos los colegios de la base de datos
-            $colegios = Colegio::all();
+            // Obtener todos los colegios de la base de datos, seleccionando explícitamente los campos
+            $colegios = Colegio::select('id', 'nombre', 'direccion', 'telefono', 'verification_code')->get();
             
             // Log para depuración
             \Log::info('Colegios obtenidos: ' . count($colegios));
