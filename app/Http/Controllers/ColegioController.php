@@ -68,19 +68,8 @@ class ColegioController extends Controller
 
             \Log::info('Datos validados: ' . json_encode($validatedData));
 
-            // Generar código de verificación único de 4 dígitos
-            do {
-                $codigo = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
-                \Log::info('Código generado: ' . $codigo);
-            } while (Colegio::where('verification_code', $codigo)->exists());
-
             // Crear el colegio usando el modelo
-            $colegio = Colegio::create([
-                'nombre' => $validatedData['nombre'],
-                'direccion' => $validatedData['direccion'],
-                'telefono' => $validatedData['telefono'],
-                'verification_code' => $codigo
-            ]);
+            $colegio = Colegio::create($validatedData);
 
             \Log::info('Colegio creado: ' . json_encode([
                 'id' => $colegio->id,
