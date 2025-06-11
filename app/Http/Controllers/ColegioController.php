@@ -53,9 +53,12 @@ class ColegioController extends Controller
                 'telefono' => 'required|string|max:20',
             ]);
 
+            \Log::info('Datos validados:', $validatedData);
+
             // Generar código de verificación único de 4 dígitos
             do {
                 $codigo = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
+                \Log::info('Código generado: ' . $codigo);
             } while (Colegio::where('verification_code', $codigo)->exists());
 
             $colegio = new Colegio();
@@ -63,9 +66,17 @@ class ColegioController extends Controller
             $colegio->direccion = $validatedData['direccion'];
             $colegio->telefono = $validatedData['telefono'];
             $colegio->verification_code = $codigo;
+
+            \Log::info('Colegio antes de guardar:', [
+                'nombre' => $colegio->nombre,
+                'direccion' => $colegio->direccion,
+                'telefono' => $colegio->telefono,
+                'verification_code' => $colegio->verification_code
+            ]);
+
             $colegio->save();
 
-            \Log::info('Colegio creado:', [
+            \Log::info('Colegio después de guardar:', [
                 'id' => $colegio->id,
                 'nombre' => $colegio->nombre,
                 'verification_code' => $colegio->verification_code
@@ -74,12 +85,12 @@ class ColegioController extends Controller
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
                 'colegio' => $colegio
-            ], 201, [
-                'Content-Type' => 'application/json',
-                'Access-Control-Allow-Origin' => '*',
-                'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers' => 'X-Requested-With, Content-Type, X-Token-Auth, Authorization',
-            ]);
+            ], 201)
+                ->header('Content-Type', 'application/json')
+                ->header('Access-Control-Allow-Origin', 'https://olimpiadas-sansi.netlify.app')
+                ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+                ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization')
+                ->header('Access-Control-Allow-Credentials', 'true');
         } catch (ValidationException $e) {
             return response()->json([
                 'mensaje' => 'Error de validación',
