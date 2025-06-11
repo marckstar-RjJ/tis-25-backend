@@ -54,18 +54,12 @@ class ColegioController extends Controller
                 'codigoColegio' => 'required|string|max:4|unique:colegios,verification_code',
             ]);
 
-            // Mapear los nombres de campo del frontend a los nombres de columna de la base de datos
-            $colegioData = [
-                'nombre' => $validatedData['nombre'],
-                'direccion' => $validatedData['direccion'],
-                'telefono' => $validatedData['telefonoReferencia'], // Mapear telefonoReferencia a telefono
-                'verification_code' => $validatedData['codigoColegio'], // Mapear codigoColegio a verification_code
-            ];
-
-            // Log para depuración: Verificar qué datos se están pasando para la creación del colegio
-            \Log::info('Data for Colegio creation: ' . json_encode($colegioData));
-
-            $colegio = Colegio::create($colegioData);
+            $colegio = new Colegio();
+            $colegio->nombre = $validatedData['nombre'];
+            $colegio->direccion = $validatedData['direccion'];
+            $colegio->telefono = $validatedData['telefonoReferencia'];
+            $colegio->verification_code = $validatedData['codigoColegio'];
+            $colegio->save();
 
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
