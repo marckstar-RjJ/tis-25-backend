@@ -18,15 +18,15 @@ class ColegioController extends Controller
             $colegios = Colegio::select('id', 'nombre', 'direccion', 'telefono', 'verification_code')->get();
             
             // Log para depuración
-            fwrite(STDERR, "=== LISTA DE COLEGIOS ===\n");
+            \Log::info('=== LISTA DE COLEGIOS ===');
             foreach ($colegios as $colegio) {
-                fwrite(STDERR, json_encode([
+                \Log::info(json_encode([
                     'id' => $colegio->id,
                     'nombre' => $colegio->nombre,
                     'verification_code' => $colegio->verification_code
-                ]) . "\n");
+                ]));
             }
-            fwrite(STDERR, "=== FIN LISTA DE COLEGIOS ===\n");
+            \Log::info('=== FIN LISTA DE COLEGIOS ===');
             
             // Establecer encabezados CORS explícitamente
             return response()->json($colegios, 200)
@@ -75,13 +75,13 @@ class ColegioController extends Controller
 
             // Verificar que el colegio se creó correctamente
             $colegioVerificado = Colegio::find($colegio->id);
-            fwrite(STDERR, "=== COLEGIO CREADO ===\n");
-            fwrite(STDERR, json_encode([
+            \Log::info('=== COLEGIO CREADO ===');
+            \Log::info(json_encode([
                 'id' => $colegioVerificado->id,
                 'nombre' => $colegioVerificado->nombre,
                 'verification_code' => $colegioVerificado->verification_code
-            ]) . "\n");
-            fwrite(STDERR, "=== FIN COLEGIO CREADO ===\n");
+            ]));
+            \Log::info('=== FIN COLEGIO CREADO ===');
 
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
@@ -93,6 +93,7 @@ class ColegioController extends Controller
                 ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization')
                 ->header('Access-Control-Allow-Credentials', 'true');
         } catch (ValidationException $e) {
+            \Log::error('Error de validación: ' . json_encode($e->errors()));
             return response()->json([
                 'mensaje' => 'Error de validación',
                 'errores' => $e->errors()
