@@ -55,6 +55,9 @@ class ColegioController extends Controller
     public function store(Request $request)
     {
         try {
+            \Log::info('=== INICIO CREACIÓN COLEGIO ===');
+            \Log::info('Datos recibidos: ' . json_encode($request->all()));
+
             // Validar los datos
             $validatedData = $request->validate([
                 'nombre' => 'required|string|max:255',
@@ -62,8 +65,11 @@ class ColegioController extends Controller
                 'telefono' => 'required|string|max:20',
             ]);
 
+            \Log::info('Datos validados: ' . json_encode($validatedData));
+
             // Generar código de verificación único de 4 dígitos
             $codigo = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
+            \Log::info('Código generado: ' . $codigo);
             
             // Crear el colegio usando create en lugar de new + save
             $colegio = Colegio::create([
@@ -73,15 +79,21 @@ class ColegioController extends Controller
                 'verification_code' => $codigo
             ]);
 
+            \Log::info('Colegio creado (antes de verificar): ' . json_encode([
+                'id' => $colegio->id,
+                'nombre' => $colegio->nombre,
+                'verification_code' => $colegio->verification_code
+            ]));
+
             // Verificar que el colegio se creó correctamente
             $colegioVerificado = Colegio::find($colegio->id);
-            \Log::info('=== COLEGIO CREADO ===');
-            \Log::info(json_encode([
+            \Log::info('Colegio verificado (después de crear): ' . json_encode([
                 'id' => $colegioVerificado->id,
                 'nombre' => $colegioVerificado->nombre,
                 'verification_code' => $colegioVerificado->verification_code
             ]));
-            \Log::info('=== FIN COLEGIO CREADO ===');
+
+            \Log::info('=== FIN CREACIÓN COLEGIO ===');
 
             return response()->json([
                 'mensaje' => 'Colegio creado correctamente',
