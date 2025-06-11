@@ -12,7 +12,8 @@ class Colegio extends Model
     protected $fillable = [
         'nombre',
         'direccion',
-        'telefono'
+        'telefono',
+        'verification_code'
     ];
 
     /**
