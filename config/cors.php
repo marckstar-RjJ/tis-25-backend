@@ -11,7 +11,16 @@ return [
         'http://127.0.0.1:44443'
     ],
     'allowed_origins_patterns' => [],
-    'allowed_headers' => ['Content-Type', 'Authorization', 'X-Requested-With', 'X-CSRF-TOKEN'],
+    'allowed_headers' => [
+        'Content-Type',
+        'Authorization',
+        'X-Requested-With',
+        'X-CSRF-TOKEN',
+        'Accept',
+        'Origin',
+        'X-Auth-Token',
+        'X-XSRF-TOKEN'
+    ],
     'exposed_headers' => ['Authorization'],
     'max_age' => 86400,
     'supports_credentials' => true,
