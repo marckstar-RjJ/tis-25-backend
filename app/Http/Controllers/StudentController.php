@@ -113,7 +113,7 @@ class StudentController extends Controller
             
             // Buscar el estudiante asociado a la cuenta del usuario usando el modelo Eloquent
             $estudiante = Student::where('cuenta_id', $user->id)
-                ->with(['college', 'tutor'])
+                ->with(['college'])
                 ->first();
                 
             if (!$estudiante) {
@@ -136,10 +136,10 @@ class StudentController extends Controller
                 'colegio_id' => $estudiante->colegio_id,
                 'colegio' => $estudiante->college ? $estudiante->college->nombre : null,
                 'celular' => $estudiante->celular,
-                'nombre_tutor' => $estudiante->tutor ? $estudiante->tutor->nombre : null,
-                'apellido_tutor' => $estudiante->tutor ? $estudiante->tutor->apellido : null,
-                'email_tutor' => $estudiante->tutor ? $estudiante->tutor->email : null,
-                'celular_tutor' => $estudiante->tutor ? $estudiante->tutor->celular : null,
+                'nombre_tutor' => $estudiante->nombre_tutor,
+                'apellido_tutor' => $estudiante->apellido_tutor,
+                'email_tutor' => $estudiante->email_tutor,
+                'celular_tutor' => $estudiante->celular_tutor,
                 'created_at' => $estudiante->created_at,
                 'updated_at' => $estudiante->updated_at,
             ];
