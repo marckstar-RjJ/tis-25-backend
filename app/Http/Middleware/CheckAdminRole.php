@@ -16,26 +16,32 @@ class CheckAdminRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Obtener el id de la cuenta desde la sesión o token
-        // En este ejemplo simple, lo obtenemos de la sesión o de un parámetro
-        $cuentaId = $request->session()->get('cuenta_id') ?? $request->input('cuenta_id');
-        
-        if (!$cuentaId) {
+        try {
+            // Obtener el usuario autenticado
+            $user = $request->user();
+            
+            if (!$user) {
+                return response()->json([
+                    'mensaje' => 'No autorizado. Debe iniciar sesión como administrador.',
+                    'error' => 'UNAUTHORIZED'
+                ], 401);
+            }
+            
+            // Verificar si el usuario es administrador
+            if ($user->tipo_usuario !== 'administrador') {
+                return response()->json([
+                    'mensaje' => 'No autorizado. Solo los administradores pueden realizar esta acción.',
+                    'error' => 'FORBIDDEN',
+                    'user_type' => $user->tipo_usuario
+                ], 403);
+            }
+            
+            return $next($request);
+        } catch (\Exception $e) {
             return response()->json([
-                'mensaje' => 'No autorizado. Debe iniciar sesión como administrador.'
-            ], 401);
+                'mensaje' => 'Error al verificar permisos de administrador',
+                'error' => $e->getMessage()
+            ], 500);
         }
-        
-        // Buscar la cuenta en la base de datos
-        $cuenta = Cuenta::find($cuentaId);
-        
-        // Verificar si la cuenta existe y es de tipo administrador
-        if (!$cuenta || $cuenta->tipo_usuario !== 'administrador') {
-            return response()->json([
-                'mensaje' => 'No autorizado. Solo los administradores pueden realizar esta acción.'
-            ], 403);
-        }
-        
-        return $next($request);
     }
 } 
