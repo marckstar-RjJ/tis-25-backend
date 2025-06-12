@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Barryvdh\DomPDF\Facade\Pdf;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Mail;
 
 class OrdenDePagoController extends Controller
 {
@@ -398,6 +399,70 @@ class OrdenDePagoController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Error al rechazar la orden: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Enviar la orden de pago por correo electrónico.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function sendOrderEmail(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'to_email' => 'required|email',
+            'subject' => 'required|string',
+            'order_id' => 'required|exists:mydb.OrdenDePago,idOrdenDePago',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error de validación',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        try {
+            $idOrden = $request->order_id;
+            $toEmail = $request->to_email;
+            $subject = $request->subject;
+
+            // Generar el PDF de la orden de pago
+            $pdfResponse = $this->generarPDF($idOrden);
+
+            // Asegurarse de que la respuesta es un StreamedResponse (un PDF)
+            if ($pdfResponse instanceof \Symfony\Component\HttpFoundation\StreamedResponse) {
+                // Obtener el contenido del PDF
+                $pdfContent = $pdfResponse->getContent();
+                $filename = 'orden_pago_' . $idOrden . '.pdf';
+
+                \Mail::send([], [], function ($message) use ($toEmail, $subject, $pdfContent, $filename) {
+                    $message->to($toEmail)
+                            ->subject($subject)
+                            ->setBody('Adjunto encontrarás tu orden de pago.', 'text/plain'); // o usar una vista de blade para el cuerpo
+                    $message->attachData($pdfContent, $filename, [
+                        'mime' => 'application/pdf',
+                    ]);
+                });
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Correo enviado exitosamente con la orden de pago adjunta.'
+                ], 200);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No se pudo generar el PDF para adjuntar.'
+                ], 500);
+            }
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al enviar el correo: ' . $e->getMessage()
             ], 500);
         }
     }

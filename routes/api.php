@@ -70,6 +70,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/ordenes', [OrdenDePagoController::class, 'listarOrdenes']);
     Route::patch('/ordenes/{id}/aprobar', [OrdenDePagoController::class, 'aprobarPago']);
     Route::patch('/ordenes/{id}/rechazar', [OrdenDePagoController::class, 'rechazarPago']);
+    Route::post('/ordenes/send-email', [OrdenDePagoController::class, 'sendOrderEmail']);
 
     // Rutas para logs
     Route::post('/logs', [LogController::class, 'store']);
