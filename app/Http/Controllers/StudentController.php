@@ -120,26 +120,27 @@ class StudentController extends Controller
                 return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
             }
 
+            \Log::info('Datos del usuario:', $user->toArray());
             \Log::info('Datos del estudiante:', $estudiante->toArray());
             
             // Combinar los datos del usuario y del estudiante
             $perfilCompleto = [
-                // Datos de la cuenta
+                // Datos de la cuenta (tabla cuentas)
                 'id' => $user->id,
                 'email' => $user->email,
                 'tipo_usuario' => $user->tipo_usuario,
+                'nombre' => $user->nombre,
+                'apellidos' => $user->apellidos,
+                'ci' => $user->ci,
                 
-                // Datos del estudiante
-                'nombre' => $estudiante->nombre,
-                'apellido' => $estudiante->apellido,
-                'ci' => $estudiante->ci,
+                // Datos específicos del estudiante (tabla estudiantes)
                 'fecha_nacimiento' => $estudiante->fecha_nacimiento,
                 'curso' => $estudiante->curso,
                 'colegio_id' => $estudiante->colegio_id,
                 'colegio' => $estudiante->college ? $estudiante->college->nombre : null,
                 'celular' => $estudiante->celular,
                 
-                // Datos del tutor
+                // Datos del tutor (tabla estudiantes)
                 'nombre_tutor' => $estudiante->nombre_tutor,
                 'apellido_tutor' => $estudiante->apellido_tutor,
                 'email_tutor' => $estudiante->email_tutor,
