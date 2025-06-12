@@ -111,12 +111,21 @@ class StudentController extends Controller
                 return response()->json(['message' => 'El usuario no es un estudiante'], 403);
             }
             
-            // Obtener los datos directamente de la tabla cuentas
+            // Obtener solo el curso de la tabla estudiantes
+            $estudiante = Student::select('curso')
+                ->where('cuenta_id', $user->id)
+                ->first();
+                
+            if (!$estudiante) {
+                return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
+            }
+            
+            // Combinar los datos del usuario y el curso del estudiante
             $perfilCompleto = [
                 'nombre' => $user->nombre,
                 'apellido' => $user->apellidos,
                 'ci' => $user->ci,
-                'curso' => $user->curso,
+                'curso' => $estudiante->curso,
                 'celular' => $user->celular,
                 'email' => $user->email
             ];
