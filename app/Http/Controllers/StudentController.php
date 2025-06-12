@@ -111,21 +111,13 @@ class StudentController extends Controller
                 return response()->json(['message' => 'El usuario no es un estudiante'], 403);
             }
             
-            // Buscar el estudiante asociado a la cuenta del usuario
-            $estudiante = DB::table('estudiantes')
-                ->where('cuenta_id', $user->id)
+            // Buscar el estudiante asociado a la cuenta del usuario usando el modelo Eloquent
+            $estudiante = Student::where('cuenta_id', $user->id)
+                ->with(['college', 'tutor'])
                 ->first();
                 
             if (!$estudiante) {
                 return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
-            }
-            
-            // Buscar información del colegio si existe
-            $colegio = null;
-            if ($estudiante->colegio_id) {
-                $colegio = DB::table('colegios')
-                    ->where('id', $estudiante->colegio_id)
-                    ->first();
             }
             
             // Combinar los datos del usuario y del estudiante
@@ -142,12 +134,12 @@ class StudentController extends Controller
                 'fecha_nacimiento' => $estudiante->fecha_nacimiento,
                 'curso' => $estudiante->curso,
                 'colegio_id' => $estudiante->colegio_id,
-                'colegio' => $colegio ? $colegio->nombre : null,
+                'colegio' => $estudiante->college ? $estudiante->college->nombre : null,
                 'celular' => $estudiante->celular,
-                'nombre_tutor' => $estudiante->nombre_tutor,
-                'apellido_tutor' => $estudiante->apellido_tutor,
-                'email_tutor' => $estudiante->email_tutor,
-                'celular_tutor' => $estudiante->celular_tutor,
+                'nombre_tutor' => $estudiante->tutor ? $estudiante->tutor->nombre : null,
+                'apellido_tutor' => $estudiante->tutor ? $estudiante->tutor->apellido : null,
+                'email_tutor' => $estudiante->tutor ? $estudiante->tutor->email : null,
+                'celular_tutor' => $estudiante->tutor ? $estudiante->tutor->celular : null,
                 'created_at' => $estudiante->created_at,
                 'updated_at' => $estudiante->updated_at,
             ];
