@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use Mail;
-use App\Mail\ResetPasswordMail;
 
 class ForgotPasswordController extends Controller
 {
@@ -40,11 +38,8 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        // Enviar el correo electrónico con el token de recuperación
-        Mail::to($user->email)->send(new ResetPasswordMail($token, $user->email));
-
         return response()->json([
-            'message' => 'Se ha enviado un enlace de restablecimiento de contraseña a su correo electrónico.'
+            'token' => $token
         ]);
     }
 
