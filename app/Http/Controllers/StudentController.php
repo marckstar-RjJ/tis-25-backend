@@ -111,26 +111,17 @@ class StudentController extends Controller
                 return response()->json(['message' => 'El usuario no es un estudiante'], 403);
             }
             
-            // Buscar el estudiante asociado a la cuenta del usuario usando el modelo Eloquent
+            // Buscar el estudiante asociado a la cuenta del usuario
             $estudiante = Student::select([
                 'id',
                 'cuenta_id',
                 'nombre',
                 'apellido',
                 'ci',
-                'fecha_nacimiento',
                 'curso',
-                'colegio_id',
-                'celular',
-                'nombre_tutor',
-                'apellido_tutor',
-                'email_tutor',
-                'celular_tutor',
-                'created_at',
-                'updated_at'
+                'celular'
             ])
             ->where('cuenta_id', $user->id)
-            ->with(['college'])
             ->first();
                 
             if (!$estudiante) {
@@ -139,32 +130,14 @@ class StudentController extends Controller
             
             // Combinar los datos del usuario y del estudiante
             $perfilCompleto = [
-                // Datos de la cuenta
-                'id' => $user->id,
-                'email' => $user->email,
-                'tipo_usuario' => $user->tipo_usuario,
-                
-                // Datos personales del estudiante
-                'nombre_completo' => $estudiante->nombre . ' ' . $estudiante->apellido,
                 'nombre' => $estudiante->nombre,
                 'apellido' => $estudiante->apellido,
                 'ci' => $estudiante->ci,
-                
-                // Datos específicos del estudiante
-                'fecha_nacimiento' => $estudiante->fecha_nacimiento,
                 'curso' => $estudiante->curso,
-                'colegio_id' => $estudiante->colegio_id,
-                'colegio' => $estudiante->college ? $estudiante->college->nombre : null,
                 'celular' => $estudiante->celular,
-                'nombre_tutor' => $estudiante->nombre_tutor,
-                'apellido_tutor' => $estudiante->apellido_tutor,
-                'email_tutor' => $estudiante->email_tutor,
-                'celular_tutor' => $estudiante->celular_tutor,
-                'created_at' => $estudiante->created_at,
-                'updated_at' => $estudiante->updated_at,
+                'email' => $user->email
             ];
             
-            \Log::info('Datos del estudiante:', $perfilCompleto);
             return response()->json($perfilCompleto);
             
         } catch (\Exception $e) {
