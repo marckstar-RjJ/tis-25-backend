@@ -112,9 +112,26 @@ class StudentController extends Controller
             }
             
             // Buscar el estudiante asociado a la cuenta del usuario usando el modelo Eloquent
-            $estudiante = Student::where('cuenta_id', $user->id)
-                ->with(['college'])
-                ->first();
+            $estudiante = Student::select([
+                'id',
+                'cuenta_id',
+                'nombre',
+                'apellido',
+                'ci',
+                'fecha_nacimiento',
+                'curso',
+                'colegio_id',
+                'celular',
+                'nombre_tutor',
+                'apellido_tutor',
+                'email_tutor',
+                'celular_tutor',
+                'created_at',
+                'updated_at'
+            ])
+            ->where('cuenta_id', $user->id)
+            ->with(['college'])
+            ->first();
                 
             if (!$estudiante) {
                 return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
@@ -147,6 +164,7 @@ class StudentController extends Controller
                 'updated_at' => $estudiante->updated_at,
             ];
             
+            \Log::info('Datos del estudiante:', $perfilCompleto);
             return response()->json($perfilCompleto);
             
         } catch (\Exception $e) {
