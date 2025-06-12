@@ -126,6 +126,9 @@ class StudentController extends Controller
                 'id' => $user->id,
                 'email' => $user->email,
                 'tipo_usuario' => $user->tipo_usuario,
+                
+                // Datos personales del estudiante
+                'nombre_completo' => $estudiante->nombre . ' ' . $estudiante->apellido,
                 'nombre' => $estudiante->nombre,
                 'apellido' => $estudiante->apellido,
                 'ci' => $estudiante->ci,
