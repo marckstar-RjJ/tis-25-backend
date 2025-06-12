@@ -53,6 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/students/{id}/enroll-areas', [StudentController::class, 'enrollInAreas']);
 
     // Rutas de colegios (protegidas)
+    Route::post('/colegios', [CollegeController::class, 'store']);
     Route::post('/colleges', [CollegeController::class, 'store']);
     Route::put('/colleges/{id}', [CollegeController::class, 'update']);
     Route::delete('/colleges/{id}', [CollegeController::class, 'destroy']);
