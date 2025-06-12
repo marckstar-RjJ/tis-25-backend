@@ -104,24 +104,46 @@ class StudentController extends Controller
             $user = $request->user();
             
             if (!$user) {
+                \Log::error('Usuario no autenticado');
                 return response()->json(['message' => 'Usuario no autenticado'], 401);
             }
             
             if ($user->tipo_usuario !== 'estudiante') {
+                \Log::error('Usuario no es estudiante', ['tipo_usuario' => $user->tipo_usuario]);
                 return response()->json(['message' => 'El usuario no es un estudiante'], 403);
             }
             
-            // Buscar el estudiante asociado a la cuenta del usuario usando el modelo Eloquent
+            \Log::info('Datos del usuario autenticado:', [
+                'id' => $user->id,
+                'email' => $user->email,
+                'tipo_usuario' => $user->tipo_usuario,
+                'nombre' => $user->nombre,
+                'apellidos' => $user->apellidos,
+                'ci' => $user->ci
+            ]);
+            
+            // Buscar el estudiante asociado a la cuenta del usuario
             $estudiante = Student::where('cuenta_id', $user->id)
                 ->with(['college'])
                 ->first();
                 
             if (!$estudiante) {
+                \Log::error('Estudiante no encontrado', ['cuenta_id' => $user->id]);
                 return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
             }
 
-            \Log::info('Datos del usuario:', $user->toArray());
-            \Log::info('Datos del estudiante:', $estudiante->toArray());
+            \Log::info('Datos del estudiante:', [
+                'id' => $estudiante->id,
+                'cuenta_id' => $estudiante->cuenta_id,
+                'fecha_nacimiento' => $estudiante->fecha_nacimiento,
+                'curso' => $estudiante->curso,
+                'colegio_id' => $estudiante->colegio_id,
+                'celular' => $estudiante->celular,
+                'nombre_tutor' => $estudiante->nombre_tutor,
+                'apellido_tutor' => $estudiante->apellido_tutor,
+                'email_tutor' => $estudiante->email_tutor,
+                'celular_tutor' => $estudiante->celular_tutor
+            ]);
             
             // Combinar los datos del usuario y del estudiante
             $perfilCompleto = [
@@ -151,11 +173,14 @@ class StudentController extends Controller
                 'updated_at' => $estudiante->updated_at,
             ];
             
-            \Log::info('Perfil completo:', $perfilCompleto);
+            \Log::info('Perfil completo a enviar:', $perfilCompleto);
             return response()->json($perfilCompleto);
             
         } catch (\Exception $e) {
-            \Log::error('Error al obtener el perfil del estudiante: ' . $e->getMessage());
+            \Log::error('Error al obtener el perfil del estudiante: ' . $e->getMessage(), [
+                'exception' => $e,
+                'trace' => $e->getTraceAsString()
+            ]);
             return response()->json(['message' => 'Error al obtener el perfil: ' . $e->getMessage()], 500);
         }
     }
