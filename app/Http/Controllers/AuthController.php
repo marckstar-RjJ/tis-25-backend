@@ -8,7 +8,6 @@ use App\Models\Estudiante;
 use App\Models\Tutor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use Laravel\Sanctum\HasApiTokens;
 
 class AuthController extends Controller
 {
@@ -150,13 +149,9 @@ class AuthController extends Controller
 
             if (!$cuenta || !Hash::check($request->password, $cuenta->password)) {
                 return response()->json([
-                    'mensaje' => 'Credenciales incorrectas',
-                    'error' => 'INVALID_CREDENTIALS'
+                    'mensaje' => 'Credenciales incorrectas'
                 ], 401);
             }
-
-            // Crear token de acceso
-            $token = $cuenta->createToken('auth_token')->plainTextToken;
 
             // Obtener datos adicionales según el tipo de usuario
             $userData = null;
@@ -169,16 +164,13 @@ class AuthController extends Controller
             return response()->json([
                 'mensaje' => 'Inicio de sesión exitoso',
                 'cuenta' => $cuenta,
-                'perfil' => $userData,
-                'token' => $token,
-                'token_type' => 'Bearer'
+                'perfil' => $userData
             ]);
             
         } catch (ValidationException $e) {
             return response()->json([
                 'mensaje' => 'Error de validación',
-                'errores' => $e->errors(),
-                'error' => 'VALIDATION_ERROR'
+                'errores' => $e->errors()
             ], 422);
         } catch (\Exception $e) {
             return response()->json([
@@ -189,57 +181,22 @@ class AuthController extends Controller
     }
 
     /**
-     * Cerrar sesión
+     * Cerrar sesión (solo para autenticación con tokens)
      */
     public function logout(Request $request)
     {
-        try {
-            // Revocar el token actual
-            $request->user()->currentAccessToken()->delete();
-            
-            return response()->json([
-                'mensaje' => 'Sesión cerrada correctamente'
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'mensaje' => 'Error al cerrar sesión',
-                'error' => $e->getMessage()
-            ], 500);
+        // Aquí podríamos invalidar tokens o marcar cookies como expiradas
+        // Si se usa Laravel Sanctum o Passport para autenticación por tokens
+        
+        // Limpiamos la sesión HTTP (si está en uso)
+        if ($request->session()->has('cuenta_id')) {
+            $request->session()->forget('cuenta_id');
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
         }
-    }
-
-    /**
-     * Obtener información del usuario actual
-     */
-    public function me(Request $request)
-    {
-        try {
-            $user = $request->user();
-            
-            if (!$user) {
-                return response()->json([
-                    'mensaje' => 'No autorizado',
-                    'error' => 'UNAUTHORIZED'
-                ], 401);
-            }
-
-            // Obtener datos adicionales según el tipo de usuario
-            $userData = null;
-            if ($user->tipo_usuario === 'estudiante') {
-                $userData = Estudiante::where('cuenta_id', $user->id)->first();
-            } elseif ($user->tipo_usuario === 'tutor') {
-                $userData = Tutor::where('cuenta_id', $user->id)->first();
-            }
-
-            return response()->json([
-                'cuenta' => $user,
-                'perfil' => $userData
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'mensaje' => 'Error al obtener información del usuario',
-                'error' => $e->getMessage()
-            ], 500);
-        }
+        
+        return response()->json([
+            'mensaje' => 'Sesión cerrada correctamente'
+        ]);
     }
 }

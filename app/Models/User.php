@@ -61,12 +61,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(Tutor::class, 'cuenta_id');
     }
-
-    /**
-     * Verifica si el usuario es administrador
-     */
-    public function isAdmin()
-    {
-        return $this->tipo_usuario === 'administrador';
-    }
 }
