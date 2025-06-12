@@ -7,6 +7,7 @@ protected $middleware = [
     \App\Http\Middleware\TrimStrings::class,
     \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     \App\Http\Middleware\LogActivity::class,
+    \App\Http\Middleware\Cors::class,
 ];
 
 protected $middlewareGroups = [
@@ -23,6 +24,7 @@ protected $middlewareGroups = [
         \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \App\Http\Middleware\Cors::class,
     ],
 ];
 
