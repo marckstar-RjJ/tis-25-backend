@@ -111,8 +111,9 @@ class StudentController extends Controller
                 return response()->json(['message' => 'El usuario no es un estudiante'], 403);
             }
             
-            // Obtener solo el curso de la tabla estudiantes
-            $estudiante = Student::select('curso')
+            // Obtener el curso y el colegio de la tabla estudiantes
+            $estudiante = Student::select('curso', 'colegio_id')
+                ->with(['college:id,nombre'])
                 ->where('cuenta_id', $user->id)
                 ->first();
                 
@@ -120,12 +121,13 @@ class StudentController extends Controller
                 return response()->json(['message' => 'Perfil de estudiante no encontrado'], 404);
             }
             
-            // Combinar los datos del usuario y el curso del estudiante
+            // Combinar los datos del usuario y los datos del estudiante
             $perfilCompleto = [
                 'nombre' => $user->nombre,
                 'apellido' => $user->apellidos,
                 'ci' => $user->ci,
                 'curso' => $estudiante->curso,
+                'colegio' => $estudiante->college ? $estudiante->college->nombre : null,
                 'celular' => $user->celular,
                 'email' => $user->email
             ];
