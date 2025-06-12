@@ -14,6 +14,16 @@ class Student extends Model
     protected $fillable = [
         'cuenta_id',
         'colegio_id',
+        'nombre',
+        'apellido',
+        'ci',
+        'fecha_nacimiento',
+        'curso',
+        'celular',
+        'nombre_tutor',
+        'apellido_tutor',
+        'email_tutor',
+        'celular_tutor',
         'grado',
         'seccion',
         'estado',
@@ -21,6 +31,7 @@ class Student extends Model
 
     protected $casts = [
         'estado' => 'boolean',
+        'fecha_nacimiento' => 'date',
     ];
 
     public function user()
