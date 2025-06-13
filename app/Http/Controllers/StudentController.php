@@ -202,7 +202,7 @@ class StudentController extends Controller
                 ->join('cuentas', 'estudiantes.cuenta_id', '=', 'cuentas.id')
                 ->select(
                     'estudiantes.id',
-                    'estudiantes.ci',
+                    'cuentas.ci',
                     'estudiantes.curso',
                     'estudiantes.celular',
                     'cuentas.email',
