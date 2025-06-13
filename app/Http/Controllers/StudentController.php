@@ -13,9 +13,17 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $query = Student::with(['user', 'college', 'tutor']);
+        
+        // Filtrar por tutor_id si se proporciona
         if ($request->has('tutor_id')) {
             $query->where('tutor_id', $request->input('tutor_id'));
         }
+        
+        // Filtrar por colegio_id si se proporciona
+        if ($request->has('colegio_id')) {
+            $query->where('colegio_id', $request->input('colegio_id'));
+        }
+        
         return response()->json($query->get());
     }
 
@@ -196,6 +204,35 @@ class StudentController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['message' => 'Error al inscribir en áreas'], 500);
+        }
+    }
+
+    public function associateWithTutor(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'tutor_id' => 'required|exists:tutores,id',
+                'student_ids' => 'required|array',
+                'student_ids.*' => 'exists:estudiantes,id'
+            ]);
+
+            DB::beginTransaction();
+
+            // Actualizar los estudiantes seleccionados
+            Student::whereIn('id', $validated['student_ids'])
+                ->update(['tutor_id' => $validated['tutor_id']]);
+
+            DB::commit();
+
+            return response()->json([
+                'message' => 'Estudiantes asociados correctamente con el tutor'
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::error('Error al asociar estudiantes con tutor: ' . $e->getMessage());
+            return response()->json([
+                'message' => 'Error al asociar estudiantes con tutor: ' . $e->getMessage()
+            ], 500);
         }
     }
 } 
