@@ -201,8 +201,13 @@ class StudentController extends Controller
             $students = DB::table('estudiantes')
                 ->join('cuentas', 'estudiantes.cuenta_id', '=', 'cuentas.id')
                 ->select(
-                    'estudiantes.*',
-                    'cuentas.email'
+                    'estudiantes.id',
+                    'estudiantes.ci',
+                    'estudiantes.curso',
+                    'estudiantes.celular',
+                    'cuentas.email',
+                    'cuentas.nombre',
+                    'cuentas.apellidos'
                 )
                 ->where('estudiantes.colegio_id', $collegeId)
                 ->where('cuentas.tipo_usuario', 'estudiante')
