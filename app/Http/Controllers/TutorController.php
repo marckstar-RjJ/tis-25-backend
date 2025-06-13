@@ -25,7 +25,7 @@ class TutorController extends Controller
             ]);
 
             // Validar que el tutor existe
-            $tutor = Tutor::findOrFail($tutorId);
+            $tutor = Tutor::with('cuenta')->findOrFail($tutorId);
 
             // Validar datos del estudiante
             $validatedData = $request->validate([
