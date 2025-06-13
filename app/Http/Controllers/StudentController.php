@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Student::with(['user', 'college', 'tutor'])->get());
+        $query = Student::with(['user', 'college', 'tutor']);
+        if ($request->has('tutor_id')) {
+            $query->where('tutor_id', $request->input('tutor_id'));
+        }
+        return response()->json($query->get());
     }
 
     public function show($id)
