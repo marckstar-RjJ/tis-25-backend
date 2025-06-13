@@ -159,38 +159,45 @@ class AuthController extends Controller
             if ($cuenta->tipo_usuario === 'estudiante') {
                 $userData = Estudiante::where('cuenta_id', $cuenta->id)->first();
             } elseif ($cuenta->tipo_usuario === 'tutor') {
-                $userData = Tutor::where('cuenta_id', $cuenta->id)->first();
-                if ($userData) {
+                // Obtener el tutor directamente de la tabla tutores
+                $tutor = DB::table('tutores')
+                    ->where('cuenta_id', $cuenta->id)
+                    ->first();
+
+                if ($tutor) {
                     // Obtener el colegio del tutor
                     $colegio = null;
-                    if ($userData->colegio_id) {
+                    if ($tutor->colegio_id) {
                         $colegio = DB::table('colegios')
-                            ->where('id', $userData->colegio_id)
+                            ->where('id', $tutor->colegio_id)
                             ->first();
                     }
                     
                     // Registrar qué se está devolviendo
                     \Log::info('Datos de tutor para login:', [
-                        'tutor_id' => $userData->id,
-                        'colegio_id' => $userData->colegio_id,
+                        'tutor_id' => $tutor->id,
+                        'colegio_id' => $tutor->colegio_id,
                         'colegio' => $colegio ? $colegio->nombre : null
                     ]);
                     
+                    // Crear el token
+                    $token = $cuenta->createToken('auth_token')->plainTextToken;
+                    
                     // Combinar datos de usuario y tutor
-                    $userData = $cuenta->toArray();
-                    $profileData = $userData->toArray();
-                    
-                    // Añadir el nombre del colegio si existe
-                    if ($colegio) {
-                        $profileData['colegio'] = $colegio->nombre;
-                    }
-                    
-                    // Combinar todos los datos
-                    $fullUserData = array_merge($userData, $profileData);
+                    $userData = [
+                        'id' => $cuenta->id,
+                        'email' => $cuenta->email,
+                        'tipo_usuario' => $cuenta->tipo_usuario,
+                        'nombre' => $tutor->nombre,
+                        'apellido' => $tutor->apellido,
+                        'ci' => $tutor->ci,
+                        'colegio_id' => $tutor->colegio_id,
+                        'colegio' => $colegio ? $colegio->nombre : null
+                    ];
                     
                     return response()->json([
                         'mensaje' => 'Inicio de sesión exitoso',
-                        'user' => $fullUserData,
+                        'user' => $userData,
                         'token' => $token
                     ]);
                 }

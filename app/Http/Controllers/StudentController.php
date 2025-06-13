@@ -197,11 +197,18 @@ class StudentController extends Controller
 
     public function getStudentsByCollege($collegeId)
     {
-        $students = Student::with(['user', 'college', 'tutor'])
-            ->where('colegio_id', $collegeId)
-            ->whereHas('user', function($query) {
-                $query->where('tipo_usuario', 'estudiante');
-            })
+        // Obtener estudiantes directamente de la tabla estudiantes
+        $students = DB::table('estudiantes')
+            ->join('cuentas', 'estudiantes.cuenta_id', '=', 'cuentas.id')
+            ->leftJoin('tutores', 'estudiantes.tutor_id', '=', 'tutores.id')
+            ->where('estudiantes.colegio_id', $collegeId)
+            ->where('cuentas.tipo_usuario', 'estudiante')
+            ->select(
+                'estudiantes.*',
+                'cuentas.email',
+                'tutores.nombre as tutor_nombre',
+                'tutores.apellido as tutor_apellido'
+            )
             ->get();
             
         return response()->json($students);
