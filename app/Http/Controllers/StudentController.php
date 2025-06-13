@@ -197,20 +197,48 @@ class StudentController extends Controller
 
     public function getStudentsByCollege($collegeId)
     {
-        // Obtener estudiantes directamente de la tabla estudiantes
-        $students = DB::table('estudiantes')
-            ->join('cuentas', 'estudiantes.cuenta_id', '=', 'cuentas.id')
-            ->leftJoin('tutores', 'estudiantes.tutor_id', '=', 'tutores.id')
-            ->where('estudiantes.colegio_id', $collegeId)
-            ->where('cuentas.tipo_usuario', 'estudiante')
-            ->select(
-                'estudiantes.*',
-                'cuentas.email',
-                'tutores.nombre as tutor_nombre',
-                'tutores.apellido as tutor_apellido'
-            )
-            ->get();
-            
-        return response()->json($students);
+        try {
+            \Log::info('Obteniendo estudiantes por colegio', ['college_id' => $collegeId]);
+
+            // Verificar que el colegio existe
+            $colegio = DB::table('colegios')->where('id', $collegeId)->first();
+            if (!$colegio) {
+                \Log::error('Colegio no encontrado', ['college_id' => $collegeId]);
+                return response()->json(['message' => 'Colegio no encontrado'], 404);
+            }
+
+            // Obtener estudiantes con sus relaciones
+            $students = DB::table('estudiantes')
+                ->join('cuentas', 'estudiantes.cuenta_id', '=', 'cuentas.id')
+                ->leftJoin('tutores', 'estudiantes.tutor_id', '=', 'tutores.id')
+                ->where('estudiantes.colegio_id', $collegeId)
+                ->where('cuentas.tipo_usuario', 'estudiante')
+                ->select(
+                    'estudiantes.id',
+                    'estudiantes.nombre',
+                    'estudiantes.apellido',
+                    'estudiantes.ci',
+                    'estudiantes.curso',
+                    'estudiantes.celular',
+                    'cuentas.email',
+                    'tutores.nombre as tutor_nombre',
+                    'tutores.apellido as tutor_apellido'
+                )
+                ->get();
+
+            \Log::info('Estudiantes encontrados', [
+                'college_id' => $collegeId,
+                'count' => $students->count()
+            ]);
+
+            return response()->json($students);
+        } catch (\Exception $e) {
+            \Log::error('Error al obtener estudiantes por colegio', [
+                'college_id' => $collegeId,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json(['message' => 'Error al obtener estudiantes del colegio'], 500);
+        }
     }
 } 
