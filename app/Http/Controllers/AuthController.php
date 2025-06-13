@@ -8,6 +8,7 @@ use App\Models\Estudiante;
 use App\Models\Tutor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -159,6 +160,40 @@ class AuthController extends Controller
                 $userData = Estudiante::where('cuenta_id', $cuenta->id)->first();
             } elseif ($cuenta->tipo_usuario === 'tutor') {
                 $userData = Tutor::where('cuenta_id', $cuenta->id)->first();
+                if ($userData) {
+                    // Obtener el colegio del tutor
+                    $colegio = null;
+                    if ($userData->colegio_id) {
+                        $colegio = DB::table('colegios')
+                            ->where('id', $userData->colegio_id)
+                            ->first();
+                    }
+                    
+                    // Registrar qué se está devolviendo
+                    \Log::info('Datos de tutor para login:', [
+                        'tutor_id' => $userData->id,
+                        'colegio_id' => $userData->colegio_id,
+                        'colegio' => $colegio ? $colegio->nombre : null
+                    ]);
+                    
+                    // Combinar datos de usuario y tutor
+                    $userData = $cuenta->toArray();
+                    $profileData = $userData->toArray();
+                    
+                    // Añadir el nombre del colegio si existe
+                    if ($colegio) {
+                        $profileData['colegio'] = $colegio->nombre;
+                    }
+                    
+                    // Combinar todos los datos
+                    $fullUserData = array_merge($userData, $profileData);
+                    
+                    return response()->json([
+                        'mensaje' => 'Inicio de sesión exitoso',
+                        'user' => $fullUserData,
+                        'token' => $token
+                    ]);
+                }
             }
 
             return response()->json([

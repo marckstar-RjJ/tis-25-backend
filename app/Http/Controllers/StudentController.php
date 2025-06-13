@@ -10,21 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $query = Student::with(['user', 'college', 'tutor']);
-        
-        // Filtrar por tutor_id si se proporciona
-        if ($request->has('tutor_id')) {
-            $query->where('tutor_id', $request->input('tutor_id'));
-        }
-        
-        // Filtrar por colegio_id si se proporciona
-        if ($request->has('colegio_id')) {
-            $query->where('colegio_id', $request->input('colegio_id'));
-        }
-        
-        return response()->json($query->get());
+        return response()->json(Student::with(['user', 'college', 'tutor'])->get());
     }
 
     public function show($id)
@@ -207,32 +195,15 @@ class StudentController extends Controller
         }
     }
 
-    public function associateWithTutor(Request $request)
+    public function getStudentsByCollege($collegeId)
     {
-        try {
-            $validated = $request->validate([
-                'tutor_id' => 'required|exists:tutores,id',
-                'student_ids' => 'required|array',
-                'student_ids.*' => 'exists:estudiantes,id'
-            ]);
-
-            DB::beginTransaction();
-
-            // Actualizar los estudiantes seleccionados
-            Student::whereIn('id', $validated['student_ids'])
-                ->update(['tutor_id' => $validated['tutor_id']]);
-
-            DB::commit();
-
-            return response()->json([
-                'message' => 'Estudiantes asociados correctamente con el tutor'
-            ]);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            \Log::error('Error al asociar estudiantes con tutor: ' . $e->getMessage());
-            return response()->json([
-                'message' => 'Error al asociar estudiantes con tutor: ' . $e->getMessage()
-            ], 500);
-        }
+        $students = Student::with(['user', 'college', 'tutor'])
+            ->where('colegio_id', $collegeId)
+            ->whereHas('user', function($query) {
+                $query->where('tipo_usuario', 'estudiante');
+            })
+            ->get();
+            
+        return response()->json($students);
     }
 } 

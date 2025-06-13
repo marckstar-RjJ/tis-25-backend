@@ -42,11 +42,11 @@ Route::middleware('auth:sanctum')->group(function () {
     // Rutas de estudiantes
     Route::get('/students', [StudentController::class, 'index']);
     Route::get('/students/{id}', [StudentController::class, 'show']);
+    Route::get('/students/college/{collegeId}', [StudentController::class, 'getStudentsByCollege']);
     Route::post('/students', [StudentController::class, 'store']);
     Route::put('/students/{id}', [StudentController::class, 'update']);
     Route::delete('/students/{id}', [StudentController::class, 'destroy']);
     Route::get('/students/{id}/areas', [StudentController::class, 'getAreas']);
-    Route::post('/students/associate-tutor', [StudentController::class, 'associateWithTutor']);
     
     // Ruta para obtener el perfil del estudiante actual
     Route::get('/student/profile', [StudentController::class, 'getCurrentProfile']);
