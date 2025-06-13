@@ -213,8 +213,10 @@ class StudentController extends Controller
                 ->where('cuentas.tipo_usuario', 'estudiante')
                 ->get();
 
+            \Log::info('Estudiantes obtenidos: ' . json_encode($students));
             return response()->json($students);
         } catch (\Exception $e) {
+            \Log::error('Error en getStudentsByCollege: ' . $e->getMessage());
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
