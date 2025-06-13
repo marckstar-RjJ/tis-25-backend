@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\TutorController;
 
 // Rutas públicas
 Route::post('/login', [UserController::class, 'login']);
@@ -74,6 +75,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // Rutas para logs
     Route::post('/logs', [LogController::class, 'store']);
     Route::get('/logs', [LogController::class, 'index'])->middleware('auth');
+
+    // Rutas para tutores
+    Route::post('/tutors/{tutorId}/students', [TutorController::class, 'registerStudent']);
 });
 
 // Rutas solo para administradores
