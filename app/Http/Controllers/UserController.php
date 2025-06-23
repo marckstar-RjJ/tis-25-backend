@@ -50,7 +50,7 @@ class UserController extends Controller
                     'fechaNacimiento' => 'required|date',
                     'curso' => 'required|integer',
                     'colegio' => 'required|exists:colegios,id',
-                    'celular' => 'required|string|max:20',
+                    'celular' => 'nullable|string|max:20',
                     'nombreTutor' => 'required|string|max:255',
                     'apellidosTutor' => 'required|string|max:255',
                     'emailTutor' => 'required|email',
@@ -58,7 +58,7 @@ class UserController extends Controller
                 ]);
             } else if ($request->input('tipoUsuario') === 'tutor') {
                 $rules = array_merge($rules, [
-                    'celular' => 'required|string|max:20',
+                    'celular' => 'nullable|string|max:20',
                     'colegio' => 'required|exists:colegios,id',
                     'departamento' => 'nullable|string|max:255',
                     'verification_code' => 'required|string|size:4',
