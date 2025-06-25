@@ -50,7 +50,7 @@ class UserController extends Controller
                     'fechaNacimiento' => 'required|date',
                     'curso' => 'required|integer',
                     'colegio' => 'required|exists:colegios,id',
-                    'celular' => 'nullable|string|max:20',
+                    'celular' => 'required|string|max:20',
                     'nombreTutor' => 'required|string|max:255',
                     'apellidosTutor' => 'required|string|max:255',
                     'emailTutor' => 'required|email',
@@ -91,9 +91,6 @@ class UserController extends Controller
                 // Crear el estudiante con los campos correctos
                 $estudiante = Estudiante::create([
                     'cuenta_id' => $user->id,
-                    'nombre' => $validatedData['nombre'],
-                    'apellido' => $validatedData['apellidos'],
-                    'ci' => $validatedData['ci'],
                     'fecha_nacimiento' => $validatedData['fechaNacimiento'],
                     'curso' => (int)$validatedData['curso'],
                     'colegio_id' => (int)$validatedData['colegio'],
