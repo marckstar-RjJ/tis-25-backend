@@ -218,26 +218,32 @@ class StudentController extends Controller
     public function getStudentsByCollege($collegeId)
     {
         try {
-            $students = DB::table('estudiantes')
-                ->join('cuentas', 'estudiantes.cuenta_id', '=', 'cuentas.id')
-                ->select(
-                    'estudiantes.id',
-                    'cuentas.ci',
-                    'estudiantes.curso',
-                    'estudiantes.celular',
-                    'cuentas.email',
-                    'cuentas.nombre',
-                    'cuentas.apellidos'
-                )
-                ->where('estudiantes.colegio_id', $collegeId)
-                ->where('cuentas.tipo_usuario', 'estudiante')
+            $students = Student::with(['user', 'college'])
+                ->where('colegio_id', $collegeId)
                 ->get();
-
-            \Log::info('Estudiantes obtenidos: ' . json_encode($students));
+            
             return response()->json($students);
         } catch (\Exception $e) {
-            \Log::error('Error en getStudentsByCollege: ' . $e->getMessage());
-            return response()->json(['error' => $e->getMessage()], 500);
+            \Log::error('Error al obtener estudiantes por colegio: ' . $e->getMessage());
+            return response()->json(['message' => 'Error al obtener estudiantes del colegio'], 500);
+        }
+    }
+
+    public function getStudentsByTutor($tutorId)
+    {
+        try {
+            // Obtener el tutor y su colegio
+            $tutor = \App\Models\Tutor::with('cuenta')->findOrFail($tutorId);
+            
+            // Obtener todos los estudiantes del colegio del tutor
+            $students = Student::with(['user', 'college'])
+                ->where('colegio_id', $tutor->colegio_id)
+                ->get();
+            
+            return response()->json($students);
+        } catch (\Exception $e) {
+            \Log::error('Error al obtener estudiantes por tutor: ' . $e->getMessage());
+            return response()->json(['message' => 'Error al obtener estudiantes del tutor'], 500);
         }
     }
 } 
