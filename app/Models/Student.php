@@ -13,20 +13,14 @@ class Student extends Model
 
     protected $fillable = [
         'cuenta_id',
-        'colegio_id',
-        'nombre',
-        'apellido',
-        'ci',
         'fecha_nacimiento',
         'curso',
+        'colegio_id',
         'celular',
         'nombre_tutor',
         'apellido_tutor',
         'email_tutor',
-        'celular_tutor',
-        'grado',
-        'seccion',
-        'estado',
+        'celular_tutor'
     ];
 
     protected $casts = [
