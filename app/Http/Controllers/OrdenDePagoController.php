@@ -401,4 +401,254 @@ class OrdenDePagoController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Buscar inscripción por número de orden para OCR
+     * 
+     * @param string $orderNumber Número de orden a buscar
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function buscarInscripcionPorOrden($orderNumber)
+    {
+        try {
+            // Buscar la orden de pago
+            $orden = OrdenDePago::where('idOrdenDePago', $orderNumber)
+                ->orWhere('referenciaPago', $orderNumber)
+                ->first();
+
+            if (!$orden) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No se encontró una orden de pago con ese número'
+                ], 404);
+            }
+
+            // Verificar que la orden esté pendiente
+            if ($orden->estado !== OrdenDePago::ESTADO_PENDIENTE) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta orden ya ha sido procesada'
+                ], 400);
+            }
+
+            // Buscar la solicitud de inscripción relacionada
+            $solicitud = SolicitudDeInscripcion::where('idOrdenPago', $orden->idOrdenDePago)
+                ->with(['participante.persona', 'convocatoria', 'areasInscritas.area'])
+                ->first();
+
+            if (!$solicitud) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No se encontró una inscripción relacionada con esta orden'
+                ], 404);
+            }
+
+            // Preparar los datos de la inscripción
+            $inscripcion = [
+                'id' => $solicitud->idSolicitudDeInscripcion,
+                'estado' => $solicitud->estado,
+                'fecha_solicitud' => $solicitud->fechaSolicitud,
+                'estudiante' => [
+                    'id' => $solicitud->participante->idPersona,
+                    'nombre' => $solicitud->participante->persona->nombres,
+                    'apellidos' => $solicitud->participante->persona->apellidos,
+                    'ci' => $solicitud->participante->persona->Carnet,
+                    'colegio' => $solicitud->participante->college ? [
+                        'id' => $solicitud->participante->college->idColegio,
+                        'nombre' => $solicitud->participante->college->nombre
+                    ] : null
+                ],
+                'convocatoria' => [
+                    'id' => $solicitud->convocatoria->idConvocatoria,
+                    'nombre' => $solicitud->convocatoria->nombre,
+                    'fecha_inicio' => $solicitud->convocatoria->fecha_inicio,
+                    'fecha_fin' => $solicitud->convocatoria->fecha_fin
+                ],
+                'areas' => $solicitud->areasInscritas->map(function ($areaInscrita) {
+                    return [
+                        'id' => $areaInscrita->area->idArea,
+                        'nombre' => $areaInscrita->area->nombreArea,
+                        'descripcion' => $areaInscrita->area->descripcion
+                    ];
+                }),
+                'ordenPago' => [
+                    'id' => $orden->idOrdenDePago,
+                    'total' => $orden->montoTotal,
+                    'estado' => $orden->estado,
+                    'fecha_creacion' => $orden->fechaCreacion,
+                    'fecha_expiracion' => $orden->fechaExpiracion
+                ]
+            ];
+
+            return response()->json([
+                'success' => true,
+                'inscripcion' => $inscripcion
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al buscar la inscripción: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Confirmar pago de inscripción
+     * 
+     * @param int $id ID de la inscripción
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function confirmarPagoInscripcion($id)
+    {
+        try {
+            // Buscar la solicitud de inscripción
+            $solicitud = SolicitudDeInscripcion::findOrFail($id);
+            
+            // Verificar que esté pendiente
+            if ($solicitud->estado !== 'Pendiente') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta inscripción ya ha sido procesada'
+                ], 400);
+            }
+
+            // Buscar la orden de pago relacionada
+            $orden = OrdenDePago::findOrFail($solicitud->idOrdenPago);
+            
+            // Verificar que la orden esté pendiente
+            if ($orden->estado !== OrdenDePago::ESTADO_PENDIENTE) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta orden ya ha sido procesada'
+                ], 400);
+            }
+
+            // Iniciar transacción
+            DB::beginTransaction();
+
+            try {
+                // Actualizar la orden de pago
+                $orden->estado = OrdenDePago::ESTADO_PAGADA;
+                $orden->fechaPago = now();
+                $orden->save();
+
+                // Actualizar la solicitud de inscripción
+                $solicitud->estado = 'Inscrito';
+                $solicitud->save();
+
+                // Confirmar transacción
+                DB::commit();
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Pago confirmado exitosamente',
+                    'data' => [
+                        'inscripcion_id' => $solicitud->idSolicitudDeInscripcion,
+                        'estado' => 'Inscrito',
+                        'fecha_pago' => $orden->fechaPago->format('Y-m-d H:i:s')
+                    ]
+                ]);
+
+            } catch (\Exception $e) {
+                DB::rollBack();
+                throw $e;
+            }
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al confirmar el pago: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Descargar orden de pago pagada
+     * 
+     * @param int $id ID de la inscripción
+     * @return \Illuminate\Http\Response
+     */
+    public function descargarOrdenPagada($id)
+    {
+        try {
+            // Buscar la solicitud de inscripción
+            $solicitud = SolicitudDeInscripcion::findOrFail($id);
+            
+            // Verificar que esté inscrito
+            if ($solicitud->estado !== 'Inscrito') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta inscripción no ha sido confirmada'
+                ], 400);
+            }
+
+            // Buscar la orden de pago relacionada
+            $orden = OrdenDePago::findOrFail($solicitud->idOrdenPago);
+            
+            // Verificar que la orden esté pagada
+            if ($orden->estado !== OrdenDePago::ESTADO_PAGADA) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Esta orden no ha sido pagada'
+                ], 400);
+            }
+
+            // Obtener datos del estudiante
+            $estudiante = $solicitud->participante->persona;
+            
+            // Obtener las áreas inscritas
+            $areasInscritas = $solicitud->areasInscritas->map(function ($areaInscrita) {
+                return [
+                    'nombre' => $areaInscrita->area->nombreArea,
+                    'costo' => $areaInscrita->area->costo
+                ];
+            });
+            
+            // Formato para el ID de la orden
+            $ordenFormateada = 'ORD-' . str_pad($orden->idOrdenDePago, 6, '0', STR_PAD_LEFT);
+            
+            // Generar código QR
+            $qrcode = base64_encode(QrCode::format('png')
+                ->size(200)
+                ->errorCorrection('H')
+                ->generate($ordenFormateada));
+            
+            // Preparar los datos para la vista
+            $data = [
+                'orden' => $orden,
+                'estudiante' => $estudiante,
+                'areas' => $areasInscritas,
+                'qrcode' => $qrcode,
+                'referencia' => $ordenFormateada,
+                'fechaEmision' => date('d/m/Y', strtotime($orden->fechaCreacion)),
+                'fechaPago' => date('d/m/Y H:i', strtotime($orden->fechaPago)),
+                'estado' => 'PAGADO'
+            ];
+            
+            // Generar el PDF
+            $pdf = PDF::loadView('pdfs.orden_pago_pagada', $data);
+            
+            // Configurar opciones del PDF
+            $pdf->setPaper('a4');
+            $pdf->setOptions([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+                'isPhpEnabled' => true,
+                'defaultFont' => 'sans-serif',
+            ]);
+            
+            // Nombre del archivo
+            $filename = 'orden_pagada_' . $ordenFormateada . '.pdf';
+            
+            // Descargar el PDF
+            return $pdf->download($filename);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al generar el PDF: ' . $e->getMessage()
+            ], 500);
+        }
+    }
 }

@@ -37,6 +37,12 @@ class Student extends Model
         return $this->belongsTo(College::class, 'colegio_id');
     }
 
+    public function tutor()
+    {
+        // La relación se establece a través del colegio
+        return $this->belongsTo(Tutor::class, 'colegio_id', 'colegio_id');
+    }
+
     public function areas()
     {
         return $this->belongsToMany(Area::class, 'estudiante_area', 'estudiante_id', 'area_id')

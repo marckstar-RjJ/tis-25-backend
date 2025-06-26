@@ -289,4 +289,26 @@ class UserController extends Controller
             ], 500);
         }
     }
+
+    public function logout(Request $request)
+    {
+        try {
+            // Revocar el token actual del usuario
+            $request->user()->currentAccessToken()->delete();
+            
+            return response()->json([
+                'message' => 'Sesión cerrada correctamente'
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error en logout:', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'message' => 'Error al cerrar sesión',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 } 

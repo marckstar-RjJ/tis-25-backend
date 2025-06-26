@@ -220,7 +220,18 @@ class StudentController extends Controller
         try {
             $students = Student::with(['user', 'college'])
                 ->where('colegio_id', $collegeId)
-                ->get();
+                ->get()
+                ->map(function ($student) {
+                    // Combinar datos del estudiante con datos de la cuenta
+                    $userData = $student->user ? $student->user->toArray() : [];
+                    $studentData = $student->toArray();
+                    
+                    // Crear un array combinado con todos los datos
+                    return array_merge($userData, $studentData, [
+                        'nombre_completo' => $student->user ? $student->user->nombre . ' ' . $student->user->apellidos : 'N/A',
+                        'colegio_nombre' => $student->college ? $student->college->nombre : 'N/A'
+                    ]);
+                });
             
             return response()->json($students);
         } catch (\Exception $e) {
@@ -232,18 +243,48 @@ class StudentController extends Controller
     public function getStudentsByTutor($tutorId)
     {
         try {
+            \Log::info('getStudentsByTutor llamado con tutorId: ' . $tutorId);
+            
+            // Verificar si el usuario está autenticado
+            $user = auth()->user();
+            \Log::info('Usuario autenticado:', ['user' => $user ? $user->toArray() : null]);
+            
+            if (!$user) {
+                \Log::error('Usuario no autenticado');
+                return response()->json(['message' => 'Usuario no autenticado'], 401);
+            }
+            
             // Obtener el tutor y su colegio
             $tutor = \App\Models\Tutor::with('cuenta')->findOrFail($tutorId);
+            \Log::info('Tutor encontrado:', ['tutor' => $tutor->toArray()]);
             
-            // Obtener todos los estudiantes del colegio del tutor
+            // Obtener todos los estudiantes del colegio del tutor con sus datos de cuenta
             $students = Student::with(['user', 'college'])
                 ->where('colegio_id', $tutor->colegio_id)
                 ->get();
             
+            \Log::info('Estudiantes encontrados:', ['count' => $students->count()]);
+            
+            $students = $students->map(function ($student) {
+                    // Combinar datos del estudiante con datos de la cuenta
+                    $userData = $student->user ? $student->user->toArray() : [];
+                    $studentData = $student->toArray();
+                    
+                    // Crear un array combinado con todos los datos
+                    return array_merge($userData, $studentData, [
+                        'nombre_completo' => $student->user ? $student->user->nombre . ' ' . $student->user->apellidos : 'N/A',
+                        'colegio_nombre' => $student->college ? $student->college->nombre : 'N/A'
+                    ]);
+                });
+            
+            \Log::info('Respuesta preparada:', ['students_count' => $students->count()]);
             return response()->json($students);
         } catch (\Exception $e) {
-            \Log::error('Error al obtener estudiantes por tutor: ' . $e->getMessage());
-            return response()->json(['message' => 'Error al obtener estudiantes del tutor'], 500);
+            \Log::error('Error al obtener estudiantes por tutor: ' . $e->getMessage(), [
+                'tutorId' => $tutorId,
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json(['message' => 'Error al obtener estudiantes del tutor: ' . $e->getMessage()], 500);
         }
     }
 } 

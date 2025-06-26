@@ -15,6 +15,7 @@ use App\Http\Controllers\LogController;
 
 // Rutas públicas
 Route::post('/login', [UserController::class, 'login']);
+Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/register', [UserController::class, 'store']);
 
 // Rutas para recuperación de contraseña
@@ -72,6 +73,20 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/ordenes', [OrdenDePagoController::class, 'listarOrdenes']);
     Route::patch('/ordenes/{id}/aprobar', [OrdenDePagoController::class, 'aprobarPago']);
     Route::patch('/ordenes/{id}/rechazar', [OrdenDePagoController::class, 'rechazarPago']);
+
+    // Rutas para órdenes de pago grupales
+    Route::post('/ordenes-grupales', [OrdenDePagoController::class, 'generarOrdenGrupal']);
+    Route::get('/ordenes-grupales/{id}/pdf', [OrdenDePagoController::class, 'generarPDFGrupal']);
+    Route::get('/ordenes-grupales', [OrdenDePagoController::class, 'listarOrdenesGrupales']);
+
+    // Rutas para OCR y verificación de comprobantes
+    Route::get('/inscripciones/buscar-por-orden/{orderNumber}', [OrdenDePagoController::class, 'buscarInscripcionPorOrden']);
+    Route::put('/inscripciones/{id}/confirmar-pago', [OrdenDePagoController::class, 'confirmarPagoInscripcion']);
+    Route::get('/inscripciones/{id}/descargar-orden-pagada', [OrdenDePagoController::class, 'descargarOrdenPagada']);
+
+    // Rutas para convocatorias activas y áreas
+    Route::get('/convocatorias/activas', [ConvocatoriaController::class, 'convocatoriasActivas']);
+    Route::get('/convocatorias/{id}/areas', [ConvocatoriaController::class, 'getAreasByConvocatoria']);
 
     // Rutas para logs
     Route::post('/logs', [LogController::class, 'store']);

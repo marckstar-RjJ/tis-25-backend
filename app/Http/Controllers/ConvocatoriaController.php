@@ -204,4 +204,20 @@ class ConvocatoriaController extends Controller
             return response()->json(['message' => 'Error al actualizar las áreas de la convocatoria'], 500);
         }
     }
+
+    /**
+     * Obtener las áreas de una convocatoria específica
+     */
+    public function getAreasByConvocatoria(string $id)
+    {
+        try {
+            $convocatoria = Convocatoria::with('areas')->findOrFail($id);
+            return response()->json($convocatoria->areas);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json(['message' => 'Convocatoria no encontrada'], 404);
+        } catch (\Exception $e) {
+            \Log::error('Error al obtener áreas de convocatoria ' . $id . ': ' . $e->getMessage());
+            return response()->json(['message' => 'Error al obtener las áreas de la convocatoria'], 500);
+        }
+    }
 }

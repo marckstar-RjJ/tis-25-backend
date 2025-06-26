@@ -15,19 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Truncar tablas para evitar duplicados
-        Schema::disableForeignKeyConstraints();
-        DB::table('users')->truncate();
-        Schema::enableForeignKeyConstraints();
-
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Usar truncate solo si es necesario para limpiar antes de sembrar
+        // Schema::disableForeignKeyConstraints();
+        // DB::table('users')->truncate();
+        // Schema::enableForeignKeyConstraints();
 
         $this->call([
+            AdminUserSeeder::class,
             ColegioSeeder::class,
             ConvocatoriaSeeder::class,
         ]);
